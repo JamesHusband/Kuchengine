@@ -15,6 +15,7 @@
     "@nx/eslint-plugin": "20.6.4",
     "@nx/jest": "20.6.4",
     "@nx/js": "20.6.4",
+    "@nx/node": "^20.6.4",
     "@nx/playwright": "20.6.4",
     "@nx/react": "20.6.4",
     "@nx/vite": "20.6.4",
@@ -25,6 +26,7 @@
     "@swc/cli": "~0.3.12",
     "@swc/core": "~1.5.7",
     "@swc/helpers": "~0.5.11",
+    "@swc/jest": "~0.2.36",
     "@testing-library/dom": "10.4.0",
     "@testing-library/react": "16.1.0",
     "@types/jest": "^29.5.12",
@@ -60,6 +62,7 @@
     "vitest": "^3.0.0"
   },
   "workspaces": [
-    "apps/*"
+    "apps/*",
+    "libs/*"
   ]
 }

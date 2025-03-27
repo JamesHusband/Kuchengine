@@ -8,6 +8,9 @@
     },
     {
       "path": "./apps/kuchen"
+    },
+    {
+      "path": "./libs/engine"
     }
   ]
 }

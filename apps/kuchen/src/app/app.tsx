@@ -3,5 +3,5 @@ export default function App() {
     <div>
       <h1>Welcome</h1>
     </div>
-  )
+  );
 }
