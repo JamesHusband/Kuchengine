@@ -1,16 +1,24 @@
-import nx from '@nx/eslint-plugin';
+import nx from '@nx/eslint-plugin'
+import functionalPlugin from 'eslint-plugin-functional'
+import importPlugin from 'eslint-plugin-import'
 
-export default [
+const config = [
   ...nx.configs['flat/base'],
   ...nx.configs['flat/typescript'],
   ...nx.configs['flat/javascript'],
+
   {
     ignores: [
+      '**/*.d.ts',
       '**/dist',
+      '**/out-tsc',
+      '**/.nx',
+      '**/node_modules',
       '**/vite.config.*.timestamp*',
       '**/vitest.config.*.timestamp*',
     ],
   },
+
   {
     files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
     rules: {
@@ -27,20 +35,35 @@ export default [
           ],
         },
       ],
+      'import/no-default-export': 'warn',
+    },
+    plugins: {
+      import: importPlugin,
     },
   },
   {
-    files: [
-      '**/*.ts',
-      '**/*.tsx',
-      '**/*.cts',
-      '**/*.mts',
-      '**/*.js',
-      '**/*.jsx',
-      '**/*.cjs',
-      '**/*.mjs',
-    ],
-    // Override or add rules here
-    rules: {},
+    files: ['libs/project/gui/**', 'apps/**/*.{ts,tsx}'],
+    rules: {
+      'import/no-default-export': 'off',
+    },
   },
-];
+
+  {
+    files: ['libs/**/*.{ts,tsx,js,jsx}'],
+    plugins: {
+      functional: functionalPlugin,
+    },
+    rules: {
+      'functional/no-class': 'warn',
+      'functional/no-this-expression': 'warn',
+      'functional/no-let': 'warn',
+      'functional/immutable-data': 'warn',
+      'func-style': ['warn', 'expression'],
+      'no-multiple-empty-lines': ['warn', { max: 1, maxEOF: 1, maxBOF: 0 }],
+      'no-trailing-spaces': 'warn',
+      complexity: ['warn', { max: 5 }],
+    },
+  },
+]
+
+export default config
