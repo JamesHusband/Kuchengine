@@ -5,7 +5,6 @@ export const usePhaserGame = <T extends HTMLElement = HTMLElement>(containerRef:
   const initialized = useRef(false);
 
   useEffect(() => {
-    console.log('✅ GameCanvas useEffect running');
     if (!initialized.current && containerRef.current) {
       createGame(containerRef.current);
       initialized.current = true;

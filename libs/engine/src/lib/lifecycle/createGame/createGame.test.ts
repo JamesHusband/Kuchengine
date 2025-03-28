@@ -1,8 +1,8 @@
 import { createGame } from './createGame.js';
-import { setGameInstance } from './gameInstance.js';
+import { setGameInstance } from '../../state/gameInstance/gameInstance.js';
 import Phaser from 'phaser';
 
-jest.mock('./gameInstance', () => ({
+jest.mock('../../state/gameInstance/gameInstance', () => ({
   setGameInstance: jest.fn(),
 }));
 
@@ -17,13 +17,13 @@ jest.mock('phaser', () => {
   };
 });
 
-jest.mock('../config/scene.config', () => ({
+jest.mock('../../config/scene.config', () => ({
   sceneMap: {
     MockScene: {},
   },
 }));
 
-jest.mock('../config/config', () => ({
+jest.mock('../../config/config', () => ({
   config: { width: 800, height: 600 },
 }));
 

@@ -1,13 +1,16 @@
-import { createScene } from '../scenes/createScene';
+import { createScene } from '../scene';
+import { sceneManager } from '../state';
 
-export const PlaceholderScene = createScene('PlaceholderScene', {
-  create(scene) {
-    scene.add.text(300, 280, '🚧 Placeholder Scene', {
+const PlaceholderScene = createScene('PlaceholderScene', {
+  create(this: Phaser.Scene) {
+    this.add.text(300, 280, '🚧 Placeholder Scene', {
       fontSize: '24px',
       color: '#ffffff',
     });
   },
 });
+
+sceneManager.registerScene(PlaceholderScene);
 
 export const sceneMap = {
   PlaceholderScene,

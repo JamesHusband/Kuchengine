@@ -1,10 +1,10 @@
 import { GameCanvas } from '../../components';
+import { ScreenLayout } from '../../layouts/ScreenLayout';
 
 export const UiShell = () => {
   return (
-    <div>
-      <h1 className="text-4xl font-bold text-center text-gray-800 mb-8">Welcome</h1>
+    <ScreenLayout>
       <GameCanvas />
-    </div>
+    </ScreenLayout>
   );
 };

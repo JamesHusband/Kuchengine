@@ -6,25 +6,34 @@ jest.mock('../../components', () => ({
   GameCanvas: () => <div data-testid="game-canvas" />,
 }));
 
+jest.mock('../../layouts/ScreenLayout', () => ({
+  ScreenLayout: ({ children }: { children: React.ReactNode }) => <div data-testid="screen-layout">{children}</div>,
+}));
+
 describe('UiShell', () => {
   beforeEach(() => {
     renderWithMocks(<UiShell />);
   });
 
   it('should render without crashing', () => {
-    expect(screen.getByRole('heading')).toBeInTheDocument();
+    expect(screen.getByTestId('screen-layout')).toBeInTheDocument();
   });
 
-  it('should render welcome heading', () => {
-    expect(screen.getByText('Welcome')).toBeInTheDocument();
+  it('should render game canvas inside screen layout', () => {
+    const screenLayout = screen.getByTestId('screen-layout');
+    expect(screenLayout).toContainElement(screen.getByTestId('game-canvas'));
   });
 
-  it('should render GameCanvas', () => {
+  it('should render game canvas', () => {
     expect(screen.getByTestId('game-canvas')).toBeInTheDocument();
   });
 
-  it('should have correct heading styles', () => {
-    const heading = screen.getByRole('heading');
-    expect(heading).toHaveClass('text-4xl', 'font-bold', 'text-center', 'text-gray-800', 'mb-8');
+  it('should have correct component structure', () => {
+    const screenLayout = screen.getByTestId('screen-layout');
+    const gameCanvas = screen.getByTestId('game-canvas');
+
+    expect(screenLayout).toBeInTheDocument();
+    expect(gameCanvas).toBeInTheDocument();
+    expect(screenLayout).toContainElement(gameCanvas);
   });
 });
