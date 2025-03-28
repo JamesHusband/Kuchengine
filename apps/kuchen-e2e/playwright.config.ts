@@ -28,6 +28,9 @@ export default defineConfig({
     url: 'http://localhost:4300',
     reuseExistingServer: !process.env.CI,
     cwd: workspaceRoot,
+    env: {
+      NODE_ENV: 'test',
+    },
   },
   projects: [
     {

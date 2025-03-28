@@ -1,9 +1,9 @@
 import { renderHook } from '@testing-library/react';
 import { usePhaserGame } from './';
-import { startGame, destroyGame } from '@kuchen/engine';
+import { createGame, destroyGame } from '@kuchen/engine';
 
 jest.mock('@kuchen/engine', () => ({
-  startGame: jest.fn(),
+  createGame: jest.fn(),
   destroyGame: jest.fn(),
 }));
 
@@ -15,15 +15,15 @@ describe('usePhaserGame', () => {
     mockRef = { current: document.createElement('div') };
   });
 
-  it('should call startGame when mounted with a valid ref', () => {
+  it('should call createGame when mounted with a valid ref', () => {
     renderHook(() => usePhaserGame(mockRef));
-    expect(startGame).toHaveBeenCalledWith(mockRef.current);
+    expect(createGame).toHaveBeenCalledWith(mockRef.current);
   });
 
-  it('should not call startGame when mounted with a null ref', () => {
+  it('should not call createGame when mounted with a null ref', () => {
     mockRef.current = null;
     renderHook(() => usePhaserGame(mockRef));
-    expect(startGame).not.toHaveBeenCalled();
+    expect(createGame).not.toHaveBeenCalled();
   });
 
   it('should call destroyGame when unmounted', () => {
@@ -32,16 +32,16 @@ describe('usePhaserGame', () => {
     expect(destroyGame).toHaveBeenCalled();
   });
 
-  it('should not call startGame multiple times on re-render', () => {
+  it('should not call createGame multiple times on re-render', () => {
     const { rerender } = renderHook(() => usePhaserGame(mockRef));
     rerender();
-    expect(startGame).toHaveBeenCalledTimes(1);
+    expect(createGame).toHaveBeenCalledTimes(1);
   });
 
   it('should maintain initialization state during re-renders', () => {
     const { rerender } = renderHook(() => usePhaserGame(mockRef));
     rerender();
     rerender();
-    expect(startGame).toHaveBeenCalledTimes(1);
+    expect(createGame).toHaveBeenCalledTimes(1);
   });
 });
