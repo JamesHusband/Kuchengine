@@ -1,5 +1,6 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { UiShell } from './';
+import { renderWithMocks } from '../../test-utils';
 
 jest.mock('../../components', () => ({
   GameCanvas: () => <div data-testid="game-canvas" />,
@@ -7,7 +8,7 @@ jest.mock('../../components', () => ({
 
 describe('UiShell', () => {
   beforeEach(() => {
-    render(<UiShell />);
+    renderWithMocks(<UiShell />);
   });
 
   it('should render without crashing', () => {

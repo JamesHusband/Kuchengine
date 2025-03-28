@@ -1,13 +1,16 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { GameCanvas } from './';
+import { renderWithMocks } from '../../test-utils';
 
+const mockUsePhaserGame = jest.fn();
 jest.mock('../../hooks', () => ({
-  usePhaserGame: jest.fn(),
+  usePhaserGame: (ref: any) => mockUsePhaserGame(ref),
 }));
 
 describe('GameCanvas', () => {
   beforeEach(() => {
-    render(<GameCanvas />);
+    mockUsePhaserGame.mockClear();
+    renderWithMocks(<GameCanvas />);
   });
 
   it('should render a div with correct attributes', () => {
@@ -17,8 +20,7 @@ describe('GameCanvas', () => {
   });
 
   it('should call usePhaserGame with the container ref', () => {
-    const { usePhaserGame } = require('../../hooks');
-    render(<GameCanvas />);
-    expect(usePhaserGame).toHaveBeenCalledWith(expect.any(Object));
+    renderWithMocks(<GameCanvas />);
+    expect(mockUsePhaserGame).toHaveBeenCalledWith(expect.any(Object));
   });
 });
