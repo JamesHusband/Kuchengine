@@ -1,4 +1,4 @@
-import { getGameInstance, destroyGameInstance } from '../../state';
+import { destroyGameInstance, getGameInstance } from '../gameInstance';
 
 export const destroyGame = () => {
   const game = getGameInstance();

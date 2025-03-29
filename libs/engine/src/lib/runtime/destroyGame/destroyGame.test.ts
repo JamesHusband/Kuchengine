@@ -1,7 +1,7 @@
 import { destroyGame } from './destroyGame.js';
-import { destroyGameInstance } from '../../state/gameInstance/gameInstance.js';
+import { destroyGameInstance } from '../gameInstance/index.js';
 
-jest.mock('../../state/gameInstance/gameInstance', () => ({
+jest.mock('../gameInstance/index.js', () => ({
   getGameInstance: jest.fn(() => 'some game instance'),
   destroyGameInstance: jest.fn(),
 }));

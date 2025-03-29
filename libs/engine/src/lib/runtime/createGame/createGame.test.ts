@@ -1,8 +1,8 @@
 import { createGame } from './createGame.js';
-import { setGameInstance } from '../../state/gameInstance/gameInstance.js';
+import { setGameInstance } from '../gameInstance/index.js';
 import Phaser from 'phaser';
 
-jest.mock('../../state/gameInstance/gameInstance', () => ({
+jest.mock('../gameInstance', () => ({
   setGameInstance: jest.fn(),
 }));
 

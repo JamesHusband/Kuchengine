@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import { config } from '../../config/config';
 import { sceneMap } from '../../config/scene.config';
-import { setGameInstance } from '../../state/gameInstance';
+import { setGameInstance } from '../gameInstance';
 
 export const createGame = (container: HTMLElement | string) => {
   const game = new Phaser.Game({
