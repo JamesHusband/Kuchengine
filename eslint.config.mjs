@@ -49,6 +49,8 @@ const config = [
       '**/pages/**/*.tsx',
       '**/app/**/*.tsx',
       '**/components/**/*.tsx',
+      '**/*.config.{ts,js}',
+      '.storybook/**/*.{ts,tsx}',
     ],
     rules: {
       'import/no-default-export': 'off',
