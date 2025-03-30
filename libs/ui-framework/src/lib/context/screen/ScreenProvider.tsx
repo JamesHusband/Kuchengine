@@ -6,7 +6,7 @@ export const ScreenProvider = ({ children }: { children?: ReactNode }) => {
   const { currentScene } = useGame();
 
   return (
-    <>
+    <div className="relative w-full h-full">
       <GameCanvas />
 
       {currentScene === 'MainMenuScene' && (
@@ -22,6 +22,6 @@ export const ScreenProvider = ({ children }: { children?: ReactNode }) => {
       )}
 
       {children}
-    </>
+    </div>
   );
 };

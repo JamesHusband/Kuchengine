@@ -1,3 +1,3 @@
 export * from './hud';
-export * from './menus';
+export * from './menu';
 export * from './hud';
