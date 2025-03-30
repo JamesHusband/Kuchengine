@@ -1,6 +1,6 @@
 import { gameEvents } from '@kuchen/engine';
 
-export const MainMenu = () => {
+export const PauseMenu = () => {
   const handleStart = () => {
     gameEvents.emit('scene-change', 'GameScene');
   };

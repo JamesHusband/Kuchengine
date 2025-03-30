@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { HUD } from './';
-import { renderWithMocks } from '../../test-utils';
+import { HUD } from '.';
+import { renderWithMocks } from '../../../test-utils';
 import { gameEvents } from '@kuchen/engine';
 
 jest.mock('@kuchen/engine', () => ({
@@ -23,6 +23,6 @@ describe('HUD', () => {
   it('should emit scene change event when clicking return button', async () => {
     const button = screen.getByText('Return to Menu');
     await userEvent.click(button);
-    expect(gameEvents.emit).toHaveBeenCalledWith('scene-change', 'MainMenuScene');
+    expect(gameEvents.emit).toHaveBeenCalledWith('scene-change', 'MainMenu');
   });
 });

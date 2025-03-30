@@ -1,8 +1,8 @@
 import { screen } from '@testing-library/react';
 import { UiShell } from './';
-import { renderWithMocks } from '../../../test-utils';
+import { renderWithMocks } from '../../../../test-utils';
 
-jest.mock('../../../context', () => ({
+jest.mock('../../../../context', () => ({
   GameProvider: ({ children }: { children: React.ReactNode }) => <div data-testid="game-provider">{children}</div>,
   ScreenProvider: () => <div data-testid="screen-provider" />,
 }));

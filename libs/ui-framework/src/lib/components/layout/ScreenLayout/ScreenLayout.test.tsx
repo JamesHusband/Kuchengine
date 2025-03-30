@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react';
 import { ScreenLayout } from './';
-import { renderWithMocks } from '../../test-utils';
+import { renderWithMocks } from '../../../test-utils';
 
 describe('ScreenLayout', () => {
   const mockChildren = <div data-testid="mock-child">Test Content</div>;

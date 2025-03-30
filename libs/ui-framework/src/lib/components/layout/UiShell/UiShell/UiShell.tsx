@@ -1,4 +1,4 @@
-import { GameProvider, ScreenProvider } from '../../../context';
+import { GameProvider, ScreenProvider } from '../../../../context';
 
 export const UiShell = () => {
   return (
