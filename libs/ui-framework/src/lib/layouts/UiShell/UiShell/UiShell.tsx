@@ -1,10 +1,9 @@
-import { GameCanvas } from '../../../components';
-import { ScreenLayout } from '../../ScreenLayout';
+import { GameProvider, ScreenProvider } from '../../../context';
 
 export const UiShell = () => {
   return (
-    <ScreenLayout>
-      <GameCanvas />
-    </ScreenLayout>
+    <GameProvider>
+      <ScreenProvider />
+    </GameProvider>
   );
 };

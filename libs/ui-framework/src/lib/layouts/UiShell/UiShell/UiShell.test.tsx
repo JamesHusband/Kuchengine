@@ -1,13 +1,10 @@
 import { screen } from '@testing-library/react';
 import { UiShell } from './';
-import { renderWithMocks } from '../../test-utils';
+import { renderWithMocks } from '../../../test-utils';
 
-jest.mock('../../components', () => ({
-  GameCanvas: () => <div data-testid="game-canvas" />,
-}));
-
-jest.mock('../../layouts/ScreenLayout', () => ({
-  ScreenLayout: ({ children }: { children: React.ReactNode }) => <div data-testid="screen-layout">{children}</div>,
+jest.mock('../../../context', () => ({
+  GameProvider: ({ children }: { children: React.ReactNode }) => <div data-testid="game-provider">{children}</div>,
+  ScreenProvider: () => <div data-testid="screen-provider" />,
 }));
 
 describe('UiShell', () => {
@@ -15,25 +12,12 @@ describe('UiShell', () => {
     renderWithMocks(<UiShell />);
   });
 
-  it('should render without crashing', () => {
-    expect(screen.getByTestId('screen-layout')).toBeInTheDocument();
-  });
+  it('should render providers in correct order', () => {
+    const gameProvider = screen.getByTestId('game-provider');
+    const screenProvider = screen.getByTestId('screen-provider');
 
-  it('should render game canvas inside screen layout', () => {
-    const screenLayout = screen.getByTestId('screen-layout');
-    expect(screenLayout).toContainElement(screen.getByTestId('game-canvas'));
-  });
-
-  it('should render game canvas', () => {
-    expect(screen.getByTestId('game-canvas')).toBeInTheDocument();
-  });
-
-  it('should have correct component structure', () => {
-    const screenLayout = screen.getByTestId('screen-layout');
-    const gameCanvas = screen.getByTestId('game-canvas');
-
-    expect(screenLayout).toBeInTheDocument();
-    expect(gameCanvas).toBeInTheDocument();
-    expect(screenLayout).toContainElement(gameCanvas);
+    expect(gameProvider).toBeInTheDocument();
+    expect(screenProvider).toBeInTheDocument();
+    expect(gameProvider).toContainElement(screenProvider);
   });
 });
