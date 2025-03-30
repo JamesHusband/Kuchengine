@@ -47,7 +47,10 @@ describe('createScene', () => {
   ) => {
     const method = scene[methodName];
     if (method) {
-      (method as (this: Phaser.Scene, ...args: any[]) => void).call(mockScene, ...args);
+      (method as (this: Phaser.Scene, ...args: T extends 'update' ? [number, number] : []) => void).call(
+        mockScene,
+        ...args,
+      );
     }
   };
 

@@ -52,7 +52,7 @@ describe('GameProvider', () => {
   });
 
   it('should throw error when useGame is used outside GameProvider', () => {
-    const consoleError = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const consoleError = jest.spyOn(console, 'error').mockImplementation(() => undefined);
     expect(() => render(<TestComponent />)).toThrow('useGame must be used within a GameProvider');
     consoleError.mockRestore();
   });

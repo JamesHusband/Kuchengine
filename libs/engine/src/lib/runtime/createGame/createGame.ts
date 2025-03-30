@@ -1,19 +1,20 @@
 import Phaser from 'phaser';
-import { config } from '../../config/config';
-import { sceneMap } from '../../config/scene.config';
 import { setGameInstance } from '../gameInstance';
 import { exposeTestHook } from '../../debug/exposeTestHook';
+import { gameEvents } from '../../eventBus';
+import { createGameConfig } from '../../config/createGame.config';
 
 export const createGame = (container: HTMLElement | string) => {
-  const game = new Phaser.Game({
-    ...config,
-    parent: container,
-    scene: Object.values(sceneMap),
-  });
-
+  const game = new Phaser.Game(createGameConfig(container));
   setGameInstance(game);
 
-  // if (import.meta.env.MODE === 'test' || import.meta.env.DEV) {
+  gameEvents.on('scene-change', (sceneKey: string) => {
+    const currentScene = game.scene.getScenes(true)[0];
+    if (currentScene) {
+      currentScene.scene.stop();
+    }
+    game.scene.start(sceneKey);
+  });
+
   exposeTestHook();
-  // }
 };

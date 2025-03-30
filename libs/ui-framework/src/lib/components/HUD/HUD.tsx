@@ -1,9 +1,15 @@
+import { gameEvents } from '@kuchen/engine';
+
 export const HUD = () => {
+  const handleReturn = () => {
+    gameEvents.emit('scene-change', 'MainMenuScene');
+  };
+
   return (
-    <div className="p-2 bg-black/70 text-white text-sm flex items-center justify-between w-full">
-      <div className="px-4">👷 Builder: 2</div>
-      <div className="px-4">🕳️ Diggers: 3</div>
-      <div className="px-4">💥 Bombers: 1</div>
+    <div className="p-2 flex items-center justify-end w-full">
+      <button onClick={handleReturn} className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded shadow">
+        Return to Menu
+      </button>
     </div>
   );
 };

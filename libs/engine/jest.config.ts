@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { readFileSync } from 'fs';
 
 const swcJestConfig = JSON.parse(readFileSync(`${__dirname}/.spec.swcrc`, 'utf-8'));

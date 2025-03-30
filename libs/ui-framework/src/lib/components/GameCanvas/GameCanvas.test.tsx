@@ -4,7 +4,7 @@ import { renderWithMocks } from '../../test-utils';
 
 const mockUsePhaserGame = jest.fn();
 jest.mock('../../hooks', () => ({
-  usePhaserGame: (ref: any) => mockUsePhaserGame(ref),
+  usePhaserGame: (ref: HTMLDivElement | null) => mockUsePhaserGame(ref),
 }));
 
 describe('GameCanvas', () => {

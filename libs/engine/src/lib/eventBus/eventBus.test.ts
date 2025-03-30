@@ -1,23 +1,25 @@
 import { gameEvents } from './eventBus.js';
+import type { TypedEmitter } from './types.js';
 
 jest.mock('phaser', () => ({
   Events: {
     EventEmitter: jest.fn().mockImplementation(() => {
-      const listeners: Record<string, ((data?: any) => void)[]> = {};
+      type EventCallback<T> = (data?: T) => void;
+      const listeners: Record<string, EventCallback<unknown>[]> = {};
 
       return {
-        on: jest.fn((event: string, callback: (data?: any) => void) => {
+        on: jest.fn((event: string, callback: EventCallback<unknown>) => {
           if (!listeners[event]) {
             listeners[event] = [];
           }
           listeners[event].push(callback);
         }),
-        off: jest.fn((event: string, callback: (data?: any) => void) => {
+        off: jest.fn((event: string, callback: EventCallback<unknown>) => {
           if (listeners[event]) {
             listeners[event] = listeners[event].filter((cb) => cb !== callback);
           }
         }),
-        emit: jest.fn((event: string, data: any) => {
+        emit: jest.fn((event: string, data: unknown) => {
           if (listeners[event]) {
             listeners[event].forEach((callback) => {
               if (data === undefined) {
@@ -40,7 +42,7 @@ jest.mock('phaser', () => ({
 
 describe('gameEvents', () => {
   let mockCallback: jest.Mock;
-  let mockEventEmitter: any;
+  let mockEventEmitter: TypedEmitter;
 
   beforeEach(() => {
     mockCallback = jest.fn();
