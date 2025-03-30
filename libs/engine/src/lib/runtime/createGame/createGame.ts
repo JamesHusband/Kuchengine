@@ -4,8 +4,10 @@ import { exposeTestHook } from '../../debug/exposeTestHook';
 import { gameEvents } from '../../eventBus';
 import { createGameConfig } from '../../config/createGame.config';
 
-export const createGame = (container: HTMLElement | string) => {
-  const game = new Phaser.Game(createGameConfig(container));
+export const createGame = (container?: HTMLElement | string) => {
+  const config = createGameConfig(undefined);
+  const game = new Phaser.Game(config);
+
   setGameInstance(game);
 
   gameEvents.on('scene-change', (sceneKey: string) => {

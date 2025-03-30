@@ -1,22 +1,11 @@
-import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
-import { gameEvents } from '@kuchen/engine';
-
-type GameContextType = {
-  currentScene: string;
-};
+import { createContext, useContext, ReactNode } from 'react';
+import { GameContextType } from '../types';
+import { useGameState } from '../../hooks/useGame/useGameState/useGameState';
 
 const GameContext = createContext<GameContextType | undefined>(undefined);
 
 export const GameProvider = ({ children }: { children: ReactNode }) => {
-  const [currentScene, setCurrentScene] = useState('MainMenuScene');
-
-  useEffect(() => {
-    const handler = (scene: string) => setCurrentScene(scene);
-    gameEvents.on('scene-change', handler);
-    return () => {
-      gameEvents.off('scene-change', handler);
-    };
-  }, []);
+  const { currentScene } = useGameState();
 
   return <GameContext.Provider value={{ currentScene }}>{children}</GameContext.Provider>;
 };
