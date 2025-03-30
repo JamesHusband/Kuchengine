@@ -1,5 +1,5 @@
-import { GameCanvas } from '../../components';
-import { ScreenLayout } from '../../layouts/ScreenLayout';
+import { GameCanvas } from '../../../components';
+import { ScreenLayout } from '../../ScreenLayout';
 
 export const UiShell = () => {
   return (

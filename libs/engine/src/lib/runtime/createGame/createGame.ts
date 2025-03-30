@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import { config } from '../../config/config';
 import { sceneMap } from '../../config/scene.config';
 import { setGameInstance } from '../gameInstance';
+import { exposeTestHook } from '../../debug/exposeTestHook';
 
 export const createGame = (container: HTMLElement | string) => {
   const game = new Phaser.Game({
@@ -12,8 +13,7 @@ export const createGame = (container: HTMLElement | string) => {
 
   setGameInstance(game);
 
-  (window as any).__kuchen = {
-    getSceneKey: () => game.scene.getScenes(true)[0]?.scene.key,
-    getGameInstance: () => game,
-  };
+  // if (import.meta.env.MODE === 'test' || import.meta.env.DEV) {
+  exposeTestHook();
+  // }
 };

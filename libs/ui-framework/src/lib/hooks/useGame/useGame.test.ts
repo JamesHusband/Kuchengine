@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react';
-import { usePhaserGame } from './';
+import { usePhaserGame } from '..';
 import { createGame, destroyGame } from '@kuchen/engine';
 
 jest.mock('@kuchen/engine', () => ({

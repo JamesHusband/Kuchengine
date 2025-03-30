@@ -6,6 +6,10 @@ jest.mock('../gameInstance', () => ({
   setGameInstance: jest.fn(),
 }));
 
+jest.mock('../../debug/exposeTestHook', () => ({
+  exposeTestHook: jest.fn(),
+}));
+
 jest.mock('phaser', () => {
   return {
     __esModule: true,
@@ -41,5 +45,11 @@ describe('createGame', () => {
     );
 
     expect(setGameInstance).toHaveBeenCalledWith({ mocked: true });
+  });
+
+  it('should call exposeTestHook in test environment', () => {
+    const { exposeTestHook } = require('../../debug/exposeTestHook');
+    createGame('test');
+    expect(exposeTestHook).toHaveBeenCalled();
   });
 });

@@ -13,5 +13,5 @@ test('loads game and starts in PlaceholderScene', async ({ page }) => {
 
   await page.waitForFunction(() => !!window.__kuchen);
   const scene = await page.evaluate(() => window.__kuchen?.getSceneKey());
-  expect(scene).toBe( 'PlaceholderScene');
+  expect(scene).toBe('PlaceholderScene');
 });
