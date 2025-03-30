@@ -1,5 +1,5 @@
 import { gameEvents } from './eventBus.js';
-import type { TypedEmitter } from './types.js';
+import type { TypedEmitter } from '../types.js';
 
 jest.mock('phaser', () => ({
   Events: {

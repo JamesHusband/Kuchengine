@@ -56,11 +56,9 @@ describe('Menu', () => {
       </Menu>,
     );
 
-    // Outer wrapper should be full size and centered
     const wrapper = screen.getByText('Content').closest('div[class*="w-full"]');
     expect(wrapper).toHaveClass('w-full', 'h-full', 'flex', 'items-center', 'justify-center');
 
-    // Inner container should have menu styling
     const container = screen.getByText('Content').closest('div[class*="bg-black"]');
     expect(container).toHaveClass(
       'p-6',

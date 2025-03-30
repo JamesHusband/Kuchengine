@@ -30,7 +30,7 @@ describe('HUD', () => {
   it('should emit game-paused event when clicking pause button', async () => {
     const button = screen.getByText('Pause');
     await userEvent.click(button);
-    expect(gameEvents.emit).toHaveBeenCalledWith('game-paused');
+    expect(gameEvents.emit).toHaveBeenCalledWith('game-paused', undefined);
   });
 
   it('should layout buttons correctly', () => {

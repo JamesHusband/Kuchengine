@@ -2,6 +2,7 @@ import { useEffect, RefObject } from 'react';
 import { getGameInstance } from '@kuchen/engine';
 
 export const useCanvas = (containerRef: RefObject<HTMLDivElement>) => {
+  console.info('Use Canvas');
   useEffect(() => {
     const container = containerRef.current;
     const game = getGameInstance();
@@ -9,12 +10,6 @@ export const useCanvas = (containerRef: RefObject<HTMLDivElement>) => {
 
     if (!canvas || !container) return;
 
-    // Ensure canvas is visible and properly sized
-    canvas.style.display = 'block';
-    canvas.style.width = '100%';
-    canvas.style.height = '100%';
-
-    // Attach canvas if not already inside
     if (!container.contains(canvas)) {
       container.appendChild(canvas);
     }
@@ -23,7 +18,6 @@ export const useCanvas = (containerRef: RefObject<HTMLDivElement>) => {
       if (container.contains(canvas)) {
         container.removeChild(canvas);
       }
-      canvas.style.display = 'none';
     };
   }, [containerRef]);
 };
