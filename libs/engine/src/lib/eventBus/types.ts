@@ -1,6 +1,7 @@
 type GameEventMap = {
   'scene-change': string;
   'game-paused': void;
+  'game-resumed': void;
   'hud-toggled': boolean;
   'scene-ready': string;
 };

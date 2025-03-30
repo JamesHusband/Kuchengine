@@ -7,17 +7,24 @@ jest.mock('../../../../context', () => ({
   ScreenProvider: () => <div data-testid="screen-provider" />,
 }));
 
+jest.mock('../../GameWrapper', () => ({
+  GameWrapper: ({ children }: { children: React.ReactNode }) => <div data-testid="game-wrapper">{children}</div>,
+}));
+
 describe('UiShell', () => {
   beforeEach(() => {
     renderWithMocks(<UiShell />);
   });
 
-  it('should render providers in correct order', () => {
+  it('should render providers and wrapper in correct order', () => {
     const gameProvider = screen.getByTestId('game-provider');
+    const gameWrapper = screen.getByTestId('game-wrapper');
     const screenProvider = screen.getByTestId('screen-provider');
 
     expect(gameProvider).toBeInTheDocument();
+    expect(gameWrapper).toBeInTheDocument();
     expect(screenProvider).toBeInTheDocument();
-    expect(gameProvider).toContainElement(screenProvider);
+    expect(gameProvider).toContainElement(gameWrapper);
+    expect(gameWrapper).toContainElement(screenProvider);
   });
 });

@@ -1,9 +1,12 @@
 import { GameProvider, ScreenProvider } from '../../../../context';
+import { GameWrapper } from '../../GameWrapper';
 
 export const UiShell = () => {
   return (
     <GameProvider>
-      <ScreenProvider />
+      <GameWrapper>
+        <ScreenProvider />
+      </GameWrapper>
     </GameProvider>
   );
 };
