@@ -1,6 +1,6 @@
 import type Phaser from 'phaser';
 import type { SceneConfig } from '../types';
-import { gameEvents } from '../eventBus';
+import { gameEvents } from '../../eventBus';
 
 export const createScene = (key: string, config: Omit<SceneConfig, 'key'>): SceneConfig => ({
   key,

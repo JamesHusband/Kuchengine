@@ -1,9 +1,9 @@
 import { createScene } from './createScene.js';
-import { gameEvents } from '../eventBus/eventBus.js';
+import { gameEvents } from '../../eventBus/eventBus.js';
 import type Phaser from 'phaser';
-import type { SceneConfig } from '../types/scene.js';
+import type { SceneConfig } from '../types.js';
 
-jest.mock('../eventBus/eventBus.js', () => ({
+jest.mock('../../eventBus/eventBus.js', () => ({
   gameEvents: {
     emit: jest.fn(),
   },

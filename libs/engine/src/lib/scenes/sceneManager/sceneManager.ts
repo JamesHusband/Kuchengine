@@ -1,4 +1,4 @@
-import type { SceneConfig, SceneMap } from '../../types';
+import type { SceneConfig, SceneMap } from '../types';
 
 export const createSceneManager = () => {
   const scenes: SceneMap = {};

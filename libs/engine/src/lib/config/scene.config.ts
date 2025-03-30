@@ -1,5 +1,4 @@
-import { createScene } from '../scene';
-import { sceneManager } from '../state';
+import { createScene, sceneManager } from '../scenes';
 
 const PlaceholderScene = createScene('PlaceholderScene', {
   create(this: Phaser.Scene) {
