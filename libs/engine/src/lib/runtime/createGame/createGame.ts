@@ -1,19 +1,17 @@
 import Phaser from 'phaser';
 import { setGameInstance } from '../gameInstance';
 import { exposeTestHook } from '../../debug/exposeTestHook';
-import { gameEvents } from '../../eventBus';
+import { initializeEventHandlers } from '../../events/handlers/index';
 import { createGameConfig } from '../../config/createGame.config';
 
-export const createGame = (container: HTMLElement | string) => {
-  const game = new Phaser.Game(createGameConfig(container));
+export const createGame = (container?: HTMLElement | string) => {
+  const config = createGameConfig(container || undefined);
+  const game = new Phaser.Game(config);
+
   setGameInstance(game);
 
-  gameEvents.on('scene-change', (sceneKey: string) => {
-    const currentScene = game.scene.getScenes(true)[0];
-    if (currentScene) {
-      currentScene.scene.stop();
-    }
-    game.scene.start(sceneKey);
+  game.events.once('ready', () => {
+    initializeEventHandlers(game);
   });
 
   exposeTestHook();

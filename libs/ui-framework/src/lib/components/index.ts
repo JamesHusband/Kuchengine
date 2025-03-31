@@ -1,3 +1,3 @@
-export * from './GameCanvas';
-export * from './HUD';
-export * from './MainMenu';
+export * from './layout';
+export * from './gui';
+export * from './elements';
