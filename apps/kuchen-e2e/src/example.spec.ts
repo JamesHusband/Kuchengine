@@ -1,8 +1,17 @@
 import { test, expect } from '@playwright/test';
 
-test('has title', async ({ page }) => {
+declare global {
+  interface Window {
+    __kuchen: {
+      getSceneKey: () => string;
+    };
+  }
+}
+
+test('loads game and starts in PlaceholderScene', async ({ page }) => {
   await page.goto('/');
 
-  // Expect h1 to contain a substring.
-  expect(await page.locator('h1').innerText()).toContain('Welcome');
+  await page.waitForFunction(() => !!window.__kuchen);
+  const scene = await page.evaluate(() => window.__kuchen?.getSceneKey());
+  expect(scene).toBe('PlaceholderScene');
 });

@@ -1,11 +1,6 @@
-import { StrictMode } from 'react'
-import * as ReactDOM from 'react-dom/client'
-import App from './app/app'
+import { createRoot } from 'react-dom/client';
+import { UiShell } from '@kuchen/ui-framework';
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
-
-root.render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+const rootElement = document.getElementById('root');
+if (!rootElement) throw new Error('Root element not found');
+createRoot(rootElement).render(<UiShell />);
