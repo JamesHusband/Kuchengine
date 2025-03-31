@@ -2,7 +2,6 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { HUD } from './HUD';
 import { sceneSystem } from '../../../systems/scene';
 
-// Mock the sceneSystem methods
 jest.mock('../../../systems/scene', () => ({
   sceneSystem: {
     pauseGame: jest.fn(),

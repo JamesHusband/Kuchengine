@@ -28,7 +28,6 @@ jest.mock('phaser', () => ({
 
 describe('gameEvents (TypedEmitter)', () => {
   beforeEach(() => {
-    // Clear all listeners before each test
     (gameEvents as any).listeners = {};
   });
 
