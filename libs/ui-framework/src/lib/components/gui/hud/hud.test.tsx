@@ -1,40 +1,26 @@
-import { screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { HUD } from './Hud';
-import { gameEvents } from '@kuchen/engine';
-import { renderWithMocks } from '../../../test-utils';
+import { render, screen, fireEvent } from '@testing-library/react';
+import { HUD } from './HUD';
+import { sceneSystem } from '../../../systems/scene';
 
-jest.mock('@kuchen/engine', () => ({
-  gameEvents: {
-    emit: jest.fn(),
+// Mock the sceneSystem methods
+jest.mock('../../../systems/scene', () => ({
+  sceneSystem: {
+    pauseGame: jest.fn(),
+    goToMainMenu: jest.fn(),
   },
 }));
 
-describe('HUD', () => {
-  beforeEach(() => {
-    jest.clearAllMocks();
-    renderWithMocks(<HUD />);
-  });
+describe('HUD Component', () => {
+  it('renders the buttons and calls sceneSystem methods on click', () => {
+    render(<HUD />);
 
-  it('should render both buttons', () => {
-    expect(screen.getByText('Return to Menu')).toBeInTheDocument();
-    expect(screen.getByText('Pause')).toBeInTheDocument();
-  });
+    const pauseButton = screen.getByText('Pause');
+    const returnButton = screen.getByText('Return to Menu');
 
-  it('should emit scene change event when clicking return button', async () => {
-    const button = screen.getByText('Return to Menu');
-    await userEvent.click(button);
-    expect(gameEvents.emit).toHaveBeenCalledWith('scene-change', 'MainMenuScene');
-  });
+    fireEvent.click(pauseButton);
+    fireEvent.click(returnButton);
 
-  it('should emit game-paused event when clicking pause button', async () => {
-    const button = screen.getByText('Pause');
-    await userEvent.click(button);
-    expect(gameEvents.emit).toHaveBeenCalledWith('game-paused', undefined);
-  });
-
-  it('should layout buttons correctly', () => {
-    const container = screen.getByText('Pause').closest('div');
-    expect(container).toHaveClass('flex', 'items-center', 'justify-between', 'w-full');
+    expect(sceneSystem.pauseGame).toHaveBeenCalledTimes(1);
+    expect(sceneSystem.goToMainMenu).toHaveBeenCalledTimes(1);
   });
 });

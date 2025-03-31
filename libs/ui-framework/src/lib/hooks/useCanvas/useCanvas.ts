@@ -1,12 +1,10 @@
-import { useEffect, RefObject } from 'react';
+import { useEffect } from 'react';
 import { getGameInstance } from '@kuchen/engine';
 
-export const useCanvas = (containerRef: RefObject<HTMLDivElement>) => {
-  console.info('Use Canvas');
+export const useCanvas = (containerRef: React.RefObject<HTMLDivElement | null>) => {
   useEffect(() => {
     const container = containerRef.current;
-    const game = getGameInstance();
-    const canvas = game?.canvas;
+    const canvas = getGameInstance()?.canvas;
 
     if (!canvas || !container) return;
 

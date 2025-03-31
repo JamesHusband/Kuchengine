@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import { setGameInstance } from '../gameInstance';
 import { exposeTestHook } from '../../debug/exposeTestHook';
-import { initializeEventHandlers } from '../../events/handlers/eventHandlers';
+import { initializeEventHandlers } from '../../events/handlers/index';
 import { createGameConfig } from '../../config/createGame.config';
 
 export const createGame = (container?: HTMLElement | string) => {
@@ -9,7 +9,10 @@ export const createGame = (container?: HTMLElement | string) => {
   const game = new Phaser.Game(config);
 
   setGameInstance(game);
-  initializeEventHandlers(game);
+
+  game.events.once('ready', () => {
+    initializeEventHandlers(game);
+  });
 
   exposeTestHook();
 };
