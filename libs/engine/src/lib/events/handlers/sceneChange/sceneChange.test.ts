@@ -1,5 +1,6 @@
 import { handleSceneChange } from './sceneChange.js';
 import { gameEvents } from '../../bus/eventBus.js';
+import type Phaser from 'phaser';
 
 jest.mock('../../bus/eventBus.js', () => ({
   gameEvents: {
@@ -8,8 +9,8 @@ jest.mock('../../bus/eventBus.js', () => ({
 }));
 
 describe('handleSceneChange', () => {
-  let sceneManagerMock: any;
-  let currentSceneMock: any;
+  let sceneManagerMock: Phaser.Scenes.SceneManager;
+  let currentSceneMock: { scene: { isActive: jest.Mock; stop: jest.Mock } };
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -24,7 +25,7 @@ describe('handleSceneChange', () => {
     sceneManagerMock = {
       getScenes: jest.fn(() => [currentSceneMock]),
       start: jest.fn(),
-    };
+    } as unknown as Phaser.Scenes.SceneManager;
   });
 
   it('registers a scene-change event listener', () => {

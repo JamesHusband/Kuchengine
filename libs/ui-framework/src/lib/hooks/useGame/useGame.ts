@@ -1,7 +1,7 @@
 import { useEffect, useRef, RefObject } from 'react';
 import { createGame, destroyGame } from '@kuchen/engine';
 
-export const usePhaserGame = (containerRef: RefObject<HTMLDivElement | null>) => {
+export const useGame = (containerRef: RefObject<HTMLDivElement | null>) => {
   const initialized = useRef(false);
 
   useEffect(() => {

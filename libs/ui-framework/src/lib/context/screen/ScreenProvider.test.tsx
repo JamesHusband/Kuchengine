@@ -1,5 +1,7 @@
-import { render, screen, act } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { ScreenProvider } from './ScreenProvider';
+import * as hooks from '../../hooks';
+import * as pauseHooks from '../../hooks/usePauseState';
 
 jest.mock('@kuchen/engine', () => ({
   gameEvents: {
@@ -21,44 +23,34 @@ jest.mock('../../systems/game/GameCanvasWithLifecycle', () => ({
   GameCanvasWithLifecycle: () => <div data-testid="game-canvas" />,
 }));
 
-jest.mock('../../hooks/usePauseState', () => ({
-  usePauseState: () => false,
-}));
+jest.mock('../../hooks');
+jest.mock('../../hooks/usePauseState');
 
-const mockUseGame = jest.fn();
-
-jest.mock('../game/GameProvider', () => ({
-  useGame: () => mockUseGame(),
-}));
-
-const renderWithProviders = async (ui: React.ReactElement) => {
-  let result;
-  await act(async () => {
-    result = render(<ScreenProvider>{ui}</ScreenProvider>);
-  });
-  return result;
-};
+const mockUseGameState = hooks.useGameState as jest.Mock;
+const mockUsePauseState = pauseHooks.usePauseState as jest.Mock;
 
 describe('ScreenProvider', () => {
   beforeEach(() => {
-    mockUseGame.mockReset();
+    mockUseGameState.mockReturnValue({ currentScene: 'MainMenuScene' });
+    mockUsePauseState.mockReturnValue({ isPaused: false });
   });
 
-  it('should render children', async () => {
-    mockUseGame.mockReturnValue({ currentScene: 'MainMenuScene' });
-    await renderWithProviders(<div data-testid="test-child">Test Content</div>);
-    expect(screen.getByTestId('test-child')).toBeInTheDocument();
+  it('should render MainMenu when scene is MainMenuScene', () => {
+    render(<ScreenProvider />);
+    expect(screen.getByText('Main Menu')).toBeInTheDocument();
   });
 
-  it('should render MainMenu when currentScene is MainMenuScene', async () => {
-    mockUseGame.mockReturnValue({ currentScene: 'MainMenuScene' });
-    await renderWithProviders(<div>Test Content</div>);
-    expect(screen.getByRole('banner')).toBeInTheDocument();
+  it('should render HUD when scene is GameScene', () => {
+    mockUseGameState.mockReturnValue({ currentScene: 'GameScene' });
+    render(<ScreenProvider />);
+    expect(screen.getByText('HUD')).toBeInTheDocument();
   });
 
-  it('should render HUD when currentScene is GameScene', async () => {
-    mockUseGame.mockReturnValue({ currentScene: 'GameScene' });
-    await renderWithProviders(<div>Test Content</div>);
-    expect(screen.getByRole('status')).toBeInTheDocument();
+  it('should render PauseMenu when game is paused', () => {
+    mockUseGameState.mockReturnValue({ currentScene: 'GameScene' });
+    mockUsePauseState.mockReturnValue({ isPaused: true });
+    render(<ScreenProvider />);
+    expect(screen.getByRole('dialog')).toBeInTheDocument();
+    expect(screen.getByText('Pause Menu')).toBeInTheDocument();
   });
 });

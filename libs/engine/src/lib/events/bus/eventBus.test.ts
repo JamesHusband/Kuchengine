@@ -5,18 +5,18 @@ jest.mock('phaser', () => ({
   default: {
     Events: {
       EventEmitter: class {
-        listeners: Record<string, Array<(data: any) => void>> = {};
+        listeners: Record<string, Array<(data: unknown) => void>> = {};
 
-        on(event: string, cb: (data: any) => void) {
+        on(event: string, cb: (data: unknown) => void) {
           this.listeners[event] = this.listeners[event] || [];
           this.listeners[event].push(cb);
         }
 
-        off(event: string, cb: (data: any) => void) {
+        off(event: string, cb: (data: unknown) => void) {
           this.listeners[event] = (this.listeners[event] || []).filter((fn) => fn !== cb);
         }
 
-        emit(event: string, data?: any) {
+        emit(event: string, data?: unknown) {
           for (const fn of this.listeners[event] || []) {
             fn(data);
           }
