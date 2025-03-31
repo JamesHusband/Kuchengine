@@ -8,10 +8,10 @@ declare global {
   }
 }
 
-test('loads game and starts in PlaceholderScene', async ({ page }) => {
+test('loads game and starts in MainMenuScene', async ({ page }) => {
   await page.goto('/');
 
   await page.waitForFunction(() => !!window.__kuchen);
   const scene = await page.evaluate(() => window.__kuchen?.getSceneKey());
-  expect(scene).toBe('PlaceholderScene');
+  expect(scene).toBe('MainMenuScene');
 });

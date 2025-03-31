@@ -1,34 +1,52 @@
-let mockRender: jest.Mock;
-let mockCreateRoot: jest.Mock;
+import '@testing-library/jest-dom';
+import * as React from 'react';
 
-jest.mock('react-dom/client', () => {
-  mockRender = jest.fn();
-  mockCreateRoot = jest.fn(() => ({ render: mockRender }));
-  return { createRoot: mockCreateRoot };
-});
-
-jest.mock('@kuchen/ui-framework', () => ({
-  UiShell: () => <div data-testid="mock-ui-shell">Mocked UI Shell</div>,
+const mockRender = jest.fn();
+const mockCreateRoot = jest.fn(() => ({
+  render: mockRender,
 }));
 
-beforeEach(() => {
-  jest.resetModules();
-  document.body.innerHTML = '';
-});
+jest.mock('@kuchen/ui-framework', () => ({
+  GameProvider: ({ children }: { children: React.ReactNode }) => <div data-testid="game-provider">{children}</div>,
+  GameWrapper: ({ children }: { children: React.ReactNode }) => <div data-testid="game-wrapper">{children}</div>,
+  ScreenProvider: () => <div data-testid="screen-provider" />,
+}));
 
-describe('main.tsx', () => {
-  it('renders into root', async () => {
-    const root = document.createElement('div');
-    root.id = 'root';
-    document.body.appendChild(root);
+jest.mock('react-dom/client', () => ({
+  createRoot: mockCreateRoot,
+}));
 
-    await import('./main');
+describe('Main Application', () => {
+  let container: HTMLDivElement;
 
-    expect(mockCreateRoot).toHaveBeenCalledWith(root);
-    expect(mockRender).toHaveBeenCalledWith(expect.anything());
+  beforeEach(() => {
+    container = document.createElement('div');
+    container.id = 'root';
+    document.body.appendChild(container);
+    jest.clearAllMocks();
+    jest.resetModules();
   });
 
-  it('throws if root is not found', async () => {
+  afterEach(() => {
+    if (document.body.contains(container)) {
+      document.body.removeChild(container);
+    }
+  });
+
+  it('should render without crashing', async () => {
+    await import('./main');
+    expect(mockCreateRoot).toHaveBeenCalledWith(container);
+    expect(mockRender).toHaveBeenCalledWith(
+      expect.objectContaining({
+        props: expect.objectContaining({
+          children: expect.any(Object),
+        }),
+      }),
+    );
+  });
+
+  it('should throw error when root element is not found', async () => {
+    document.body.removeChild(container);
     await expect(import('./main')).rejects.toThrow('Root element not found');
   });
 });
