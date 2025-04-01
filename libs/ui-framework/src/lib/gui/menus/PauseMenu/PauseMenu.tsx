@@ -1,14 +1,14 @@
 import { Menu } from '../Menu';
-import { VBox, Button } from '../../elements';
+import { Button } from '../../elements';
 import { sceneController } from '../../../core/controllers';
 
 export const PauseMenu = () => {
   return (
-    <Menu title="Game Paused">
-      <VBox>
-        <Button onClick={sceneController.resumeGame}>Resume</Button>
-        <Button onClick={sceneController.goToGame}>Return to Menu</Button>
-      </VBox>
+    <Menu title="Paused">
+      <Button onClick={sceneController.resumeGame}>Play</Button>
+      <Button onClick={sceneController.restartGame}>Restart</Button>
+      <Button onClick={sceneController.openOptions}>Options</Button>
+      <Button onClick={sceneController.goToMainMenu}>Quit</Button>
     </Menu>
   );
 };

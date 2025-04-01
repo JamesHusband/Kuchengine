@@ -9,7 +9,15 @@ module.exports = {
     ...createGlobPatternsForDependencies(__dirname),
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'game-title': ['Bangers', 'cursive'],
+        game: ['Roboto Condensed', 'sans-serif'],
+      },
+      backgroundImage: {
+        'menu-gradient': 'linear-gradient(180deg, #4299E1 0%, #2B6CB0 100%)',
+      },
+    },
   },
   plugins: [],
 };

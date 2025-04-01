@@ -4,6 +4,8 @@ export type GameEventMap = {
   'game-resumed': void;
   'hud-toggled': boolean;
   'scene-ready': string;
+  'game-restart': void;
+  'open-options': void;
 };
 
 export type TypedEmitter<T extends Record<string, any>> = {
