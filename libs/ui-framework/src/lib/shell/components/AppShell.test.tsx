@@ -2,14 +2,14 @@ import { render } from '@testing-library/react';
 import { AppShell } from './AppShell';
 import React, { ReactElement } from 'react';
 
-jest.mock('@kuchen/ui-framework', () => ({
+jest.mock('../../core/providers', () => ({
   GameProvider: ({ children }: { children: React.ReactNode }): ReactElement => (
     <div data-testid="game-provider">{children}</div>
   ),
   ScreenProvider: (): ReactElement => <div data-testid="screen-provider">Screen Provider</div>,
 }));
 
-jest.mock('../layout', () => ({
+jest.mock('../../gui/layouts', () => ({
   Layout: ({ children }: { children: React.ReactNode }): ReactElement => <div data-testid="layout">{children}</div>,
 }));
 

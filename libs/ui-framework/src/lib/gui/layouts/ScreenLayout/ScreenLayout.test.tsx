@@ -25,6 +25,6 @@ describe('ScreenLayout', () => {
 
   it('should have correct container styles', () => {
     const container = screen.getByTestId('game-container');
-    expect(container).toHaveClass('w-[800px]', 'h-[600px]');
+    expect(container).toHaveClass('w-full', 'h-full');
   });
 });

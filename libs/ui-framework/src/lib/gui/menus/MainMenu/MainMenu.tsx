@@ -1,5 +1,5 @@
 import { Menu } from '../Menu';
-import { Button } from '../../elements';
+import { Button } from '../../components/elements';
 import { sceneController } from '../../../core/controllers';
 
 export const MainMenu = () => {

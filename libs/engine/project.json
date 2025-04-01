@@ -1,0 +1,5 @@
+{
+  "name": "engine",
+  "sourceRoot": "libs/engine/src",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json"
+}

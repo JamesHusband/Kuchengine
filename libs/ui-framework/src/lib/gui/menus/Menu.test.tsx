@@ -45,7 +45,7 @@ describe('Menu', () => {
       </Menu>,
     );
 
-    const menuInner = screen.getByText('Content').closest('div[class*="bg-black"]');
+    const menuInner = screen.getByText('Content').closest('div[class*="bg-[#8B4513]"]');
     expect(menuInner).toHaveClass('custom-class');
   });
 
@@ -56,18 +56,10 @@ describe('Menu', () => {
       </Menu>,
     );
 
-    const wrapper = screen.getByText('Content').closest('div[class*="w-full"]');
-    expect(wrapper).toHaveClass('w-full', 'h-full', 'flex', 'items-center', 'justify-center');
+    const wrapper = screen.getByText('Content').closest('div[class*="fixed"]');
+    expect(wrapper).toHaveClass('fixed', 'inset-0', 'z-50', 'flex', 'items-center', 'justify-center');
 
-    const container = screen.getByText('Content').closest('div[class*="bg-black"]');
-    expect(container).toHaveClass(
-      'p-6',
-      'bg-black/80',
-      'text-white',
-      'border-2',
-      'border-gray-600',
-      'rounded',
-      'max-w-sm',
-    );
+    const container = screen.getByText('Content').closest('div[class*="bg-[#8B4513]"]');
+    expect(container).toHaveClass('p-6', 'bg-[#8B4513]', 'border-4', 'border-[#DAA520]', 'rounded-lg', 'min-w-[240px]');
   });
 });

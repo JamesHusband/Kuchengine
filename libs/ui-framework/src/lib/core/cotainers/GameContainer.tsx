@@ -1,9 +1,9 @@
 import { useRef } from 'react';
-import { Canvas } from '../../gui';
+import { Canvas } from '../../gui/components/elements';
 import { useCanvas } from '../hooks';
 import { useGame } from '../hooks/useGame/useGame';
 
-export const GameCanvasWithLifecycle = () => {
+export const GameContainer = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useGame(containerRef);

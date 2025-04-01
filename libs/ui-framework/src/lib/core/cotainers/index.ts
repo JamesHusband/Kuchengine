@@ -1,1 +1,1 @@
-export * from './GameCanvasWithLifecycle';
+export * from './GameContainer';

@@ -8,7 +8,6 @@ export const MainMenuScene = createScene('MainMenuScene', {
     }
   },
   shutdown(this: Phaser.Scene) {
-    // Show the canvas when leaving MainMenuScene
     const canvas = this.game.canvas;
     if (canvas) {
       canvas.style.display = 'block';

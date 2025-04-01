@@ -8,12 +8,10 @@ interface GuiRendererProps {
 }
 
 export const GuiRenderer = ({ currentScene, isPaused }: GuiRendererProps) => {
-  // If paused, show pause menu
   if (isPaused) {
     return <PauseMenu />;
   }
 
-  // Show appropriate UI based on scene
   switch (currentScene) {
     case 'MainMenuScene':
       return <MainMenu />;

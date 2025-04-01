@@ -1,9 +1,8 @@
 import { createContext } from 'react';
 import { useGameState } from '../../state';
 import { ScreenContextType } from '../../context/types';
-import { MainMenu, HUD, PauseMenu } from '../../../gui';
-import { ScreenLayout } from '../../../';
-import { GameCanvasWithLifecycle } from '../../cotainers';
+import { ScreenLayout } from '../../../gui/layouts';
+import { GameContainer } from '../../cotainers';
 import { usePauseState } from '../../state';
 import { GuiRenderer } from '../../GuiRenderer';
 
@@ -17,7 +16,7 @@ export const ScreenProvider = () => {
     <ScreenContext.Provider value={{ currentScene }}>
       <ScreenLayout>
         <GuiRenderer currentScene={currentScene} isPaused={isPaused} />
-        <GameCanvasWithLifecycle />
+        <GameContainer />
       </ScreenLayout>
     </ScreenContext.Provider>
   );
