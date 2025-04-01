@@ -2,14 +2,14 @@ import { render } from '@testing-library/react';
 import { AppShell } from './AppShell';
 import React, { ReactElement } from 'react';
 
-jest.mock('../../core/providers', () => ({
+jest.mock('../../../core/providers', () => ({
   GameProvider: ({ children }: { children: React.ReactNode }): ReactElement => (
     <div data-testid="game-provider">{children}</div>
   ),
   ScreenProvider: (): ReactElement => <div data-testid="screen-provider">Screen Provider</div>,
 }));
 
-jest.mock('../../gui/layouts', () => ({
+jest.mock('../../../gui/layouts', () => ({
   Layout: ({ children }: { children: React.ReactNode }): ReactElement => <div data-testid="layout">{children}</div>,
 }));
 

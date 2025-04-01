@@ -1,12 +1,9 @@
-import { createContext } from 'react';
 import { useGameState } from '../../state';
-import { ScreenContextType } from '../../context/types';
 import { ScreenLayout } from '../../../gui/layouts';
 import { GameContainer } from '../../cotainers';
 import { usePauseState } from '../../state';
 import { GuiRenderer } from '../../GuiRenderer';
-
-const ScreenContext = createContext<ScreenContextType | undefined>(undefined);
+import { ScreenContext } from '../../context';
 
 export const ScreenProvider = () => {
   const { currentScene } = useGameState();

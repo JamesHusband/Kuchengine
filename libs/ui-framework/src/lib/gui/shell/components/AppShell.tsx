@@ -1,5 +1,5 @@
-import { GameProvider, ScreenProvider } from '../../core/providers';
-import { Layout } from '../../gui/layouts';
+import { GameProvider, ScreenProvider } from '../../../core/providers';
+import { Layout } from '../../../gui/layouts';
 
 export const AppShell = () => (
   <GameProvider>

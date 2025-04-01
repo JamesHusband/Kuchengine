@@ -1,1 +1,2 @@
-export * from './shell';
+export * from './core';
+export * from './gui';

@@ -1,8 +1,8 @@
 import { handleSceneChange } from './sceneChange.js';
-import { gameEvents } from '../../bus/gameEvents.js';
+import { gameEvents } from '../../../bus/gameEvents.js';
 import type Phaser from 'phaser';
 
-jest.mock('../../bus/gameEvents.js', () => ({
+jest.mock('../../../bus/gameEvents.js', () => ({
   gameEvents: {
     on: jest.fn(),
   },
