@@ -1,5 +1,5 @@
 import type { Types } from 'phaser';
-import { sceneMap } from './scene.config';
+import { sceneMap } from '../scenes/../scenes/sceneMap';
 
 export const createGameConfig = (container?: HTMLElement | string): Types.Core.GameConfig => ({
   type: Phaser.AUTO,
