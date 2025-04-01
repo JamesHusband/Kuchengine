@@ -1,52 +1,33 @@
+import { screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import * as React from 'react';
-
-const mockRender = jest.fn();
-const mockCreateRoot = jest.fn(() => ({
-  render: mockRender,
-}));
 
 jest.mock('@kuchen/ui-framework', () => ({
-  GameProvider: ({ children }: { children: React.ReactNode }) => <div data-testid="game-provider">{children}</div>,
-  GameWrapper: ({ children }: { children: React.ReactNode }) => <div data-testid="game-wrapper">{children}</div>,
-  ScreenProvider: () => <div data-testid="screen-provider" />,
+  AppShell: () => <div data-testid="app-shell">App Shell</div>,
 }));
 
-jest.mock('react-dom/client', () => ({
-  createRoot: mockCreateRoot,
-}));
-
-describe('Main Application', () => {
-  let container: HTMLDivElement;
-
+describe('Main', () => {
   beforeEach(() => {
-    container = document.createElement('div');
-    container.id = 'root';
-    document.body.appendChild(container);
     jest.clearAllMocks();
     jest.resetModules();
+    document.body.innerHTML = '<div id="root"></div>';
   });
 
-  afterEach(() => {
-    if (document.body.contains(container)) {
-      document.body.removeChild(container);
-    }
-  });
-
-  it('should render without crashing', async () => {
+  it('should render AppShell when root element exists', async () => {
     await import('./main');
-    expect(mockCreateRoot).toHaveBeenCalledWith(container);
-    expect(mockRender).toHaveBeenCalledWith(
-      expect.objectContaining({
-        props: expect.objectContaining({
-          children: expect.any(Object),
-        }),
-      }),
-    );
+
+    await waitFor(() => {
+      expect(screen.getByTestId('app-shell')).toBeInTheDocument();
+      expect(screen.getByText('App Shell')).toBeInTheDocument();
+    });
   });
 
-  it('should throw error when root element is not found', async () => {
-    document.body.removeChild(container);
-    await expect(import('./main')).rejects.toThrow('Root element not found');
+  it('should throw error when root element is not found', () => {
+    document.body.innerHTML = '';
+
+    expect(() => {
+      jest.isolateModules(() => {
+        require('./main');
+      });
+    }).toThrow('Root element not found');
   });
 });

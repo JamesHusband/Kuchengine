@@ -1,8 +1,8 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { HUD } from './HUD';
-import { sceneController } from '../../../systems/scene';
+import { sceneController } from '../../core/controllers';
 
-jest.mock('../../../systems/scene', () => ({
+jest.mock('../../core/controllers', () => ({
   sceneController: {
     pauseGame: jest.fn(),
     goToMainMenu: jest.fn(),

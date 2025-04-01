@@ -1,40 +1,29 @@
 import { render, screen } from '@testing-library/react';
-import { GameWrapper } from './Layout';
+import { Layout } from './Layout';
 
-describe('GameWrapper', () => {
-  it('should render children within game container', () => {
-    render(
-      <GameWrapper>
-        <div data-testid="test-child">Test Content</div>
-      </GameWrapper>,
-    );
-
-    const child = screen.getByTestId('test-child');
-    const container = child.parentElement;
-    expect(container).toHaveClass('w-[1024px]', 'h-[768px]', 'bg-gray-900');
-    expect(child).toBeInTheDocument();
-    expect(child).toHaveTextContent('Test Content');
+describe('Layout', () => {
+  it('renders without crashing', () => {
+    render(<Layout>Test content</Layout>);
+    expect(screen.getByText('Test content')).toBeInTheDocument();
   });
 
-  it('should render with correct viewport wrapper styles', () => {
+  it('renders children correctly', () => {
     render(
-      <GameWrapper>
-        <div>Content</div>
-      </GameWrapper>,
+      <Layout>
+        <div data-testid="child-element">Child content</div>
+      </Layout>,
     );
-
-    const viewport = screen.getByText('Content').parentElement?.parentElement;
-    expect(viewport).toHaveClass('min-h-screen', 'w-full', 'bg-black', 'flex', 'items-center', 'justify-center');
+    expect(screen.getByTestId('child-element')).toBeInTheDocument();
+    expect(screen.getByText('Child content')).toBeInTheDocument();
   });
 
-  it('should maintain game container dimensions', () => {
-    render(
-      <GameWrapper>
-        <div>Content</div>
-      </GameWrapper>,
-    );
+  it('applies correct styling and dimensions', () => {
+    const { container } = render(<Layout>Content</Layout>);
 
-    const gameContainer = screen.getByText('Content').parentElement;
-    expect(gameContainer).toHaveClass('w-[1024px]', 'h-[768px]');
+    const outerContainer = container.firstChild as HTMLElement;
+    expect(outerContainer).toHaveClass('min-h-screen', 'w-full', 'bg-white', 'flex', 'items-center', 'justify-center');
+
+    const innerContainer = outerContainer.firstChild as HTMLElement;
+    expect(innerContainer).toHaveClass('w-[1024px]', 'h-[768px]', 'relative');
   });
 });

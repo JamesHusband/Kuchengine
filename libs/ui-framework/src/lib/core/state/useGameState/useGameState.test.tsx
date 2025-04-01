@@ -1,10 +1,10 @@
 import { renderHook, act } from '@testing-library/react';
 import { useGameState } from './useGameState';
-import { useSceneListener } from '../useScene';
+import { useSceneListener } from '../../listeners';
 
 let sceneChangeCallback: (scene: string) => void = () => 'test';
 
-jest.mock('../useScene', () => ({
+jest.mock('../../listeners', () => ({
   useSceneListener: jest.fn((callback) => {
     sceneChangeCallback = callback;
   }),

@@ -20,7 +20,7 @@ describe('ScreenLayout', () => {
 
   it('should have correct layout styles', () => {
     const layout = screen.getByTestId('screen-layout');
-    expect(layout).toHaveClass('flex', 'items-center', 'justify-center', 'min-h-screen');
+    expect(layout).toHaveClass('w-full', 'h-full');
   });
 
   it('should have correct container styles', () => {
