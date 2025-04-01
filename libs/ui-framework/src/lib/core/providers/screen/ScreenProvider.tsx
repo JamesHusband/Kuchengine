@@ -2,7 +2,7 @@ import { createContext } from 'react';
 import { useGameState } from '../../state';
 import { ScreenContextType } from '../../context/types';
 import { MainMenu, HUD, PauseMenu } from '../../../gui';
-import { ScreenLayout } from '../../../components/layout';
+import { ScreenLayout } from '../../../';
 import { GameCanvasWithLifecycle } from '../../cotainers';
 import { usePauseState } from '../../state';
 
