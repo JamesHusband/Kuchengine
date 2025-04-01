@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { GameWrapper } from './GameWrapper';
+import { GameWrapper } from './Layout';
 
 describe('GameWrapper', () => {
   it('should render children within game container', () => {

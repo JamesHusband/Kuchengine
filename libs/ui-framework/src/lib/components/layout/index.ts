@@ -1,2 +1,2 @@
 export * from './ScreenLayout';
-export * from './GameWrapper';
+export * from './Layout';

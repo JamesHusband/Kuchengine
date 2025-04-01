@@ -1,5 +1,5 @@
 import { screen } from '@testing-library/react';
-import { ScreenLayout } from './';
+import { ScreenLayout } from '.';
 import { renderWithMocks } from '../../../test-utils';
 
 describe('ScreenLayout', () => {
