@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { Canvas } from '../../components/elements';
+import { Canvas } from '../../gui';
 import { useCanvas } from '../hooks';
 import { useGame } from '../hooks/useGame/useGame';
 

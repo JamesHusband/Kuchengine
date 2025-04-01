@@ -1,5 +1,5 @@
-import { Button } from '../../elements/Button/Button';
-import { sceneController } from '../../../core/controllers';
+import { Button } from '../../gui';
+import { sceneController } from '../../core/controllers';
 
 export const HUD = () => {
   return (
