@@ -4,7 +4,7 @@ import { exposeTestHook } from '../../debug/exposeTestHook';
 import { initializeEventHandlers } from '../../events/handlers/index';
 import { createGameConfig } from '../../config/createGame.config';
 
-export const createGame = (container?: HTMLElement | string) => {
+export const createGame = (container?: HTMLElement | string): Phaser.Game => {
   const config = createGameConfig(container || undefined);
   const game = new Phaser.Game(config);
 
@@ -15,4 +15,6 @@ export const createGame = (container?: HTMLElement | string) => {
   });
 
   exposeTestHook();
+
+  return game;
 };
