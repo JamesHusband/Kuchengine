@@ -1,6 +1,6 @@
 import { gameEvents } from '@kuchen/engine';
 
-export const sceneSystem = {
+export const sceneController = {
   changeTo: (key: string) => {
     gameEvents.emit('scene-change', key);
   },

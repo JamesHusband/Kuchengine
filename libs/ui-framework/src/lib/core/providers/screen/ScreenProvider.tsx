@@ -2,7 +2,7 @@ import { createContext } from 'react';
 import { useGameState } from '../../state';
 import { ScreenContextType } from '../../context/types';
 import { MainMenu, HUD, PauseMenu, ScreenLayout } from '../../../components';
-import { GameCanvasWithLifecycle } from '../../../systems/game/GameCanvasWithLifecycle';
+import { GameCanvasWithLifecycle } from '../../cotainers';
 import { usePauseState } from '../../state';
 
 const ScreenContext = createContext<ScreenContextType | undefined>(undefined);

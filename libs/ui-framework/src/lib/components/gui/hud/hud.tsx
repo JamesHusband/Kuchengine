@@ -1,11 +1,11 @@
 import { Button } from '../../elements/Button/Button';
-import { sceneSystem } from '../../../systems/scene';
+import { sceneController } from '../../../core/controllers';
 
 export const HUD = () => {
   return (
     <div className="p-2 flex items-center justify-between w-full">
-      <Button onClick={sceneSystem.pauseGame}>Pause</Button>
-      <Button onClick={sceneSystem.goToMainMenu}>Return to Menu</Button>
+      <Button onClick={sceneController.pauseGame}>Pause</Button>
+      <Button onClick={sceneController.goToMainMenu}>Return to Menu</Button>
     </div>
   );
 };
