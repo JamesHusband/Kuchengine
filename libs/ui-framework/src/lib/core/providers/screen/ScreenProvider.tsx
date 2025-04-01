@@ -5,6 +5,7 @@ import { MainMenu, HUD, PauseMenu } from '../../../gui';
 import { ScreenLayout } from '../../../';
 import { GameCanvasWithLifecycle } from '../../cotainers';
 import { usePauseState } from '../../state';
+import { GuiRenderer } from '../../GuiRenderer';
 
 const ScreenContext = createContext<ScreenContextType | undefined>(undefined);
 
@@ -15,24 +16,7 @@ export const ScreenProvider = () => {
   return (
     <ScreenContext.Provider value={{ currentScene }}>
       <ScreenLayout>
-        {currentScene === 'MainMenuScene' && (
-          <div className="absolute inset-0 z-10">
-            <MainMenu />
-          </div>
-        )}
-
-        {currentScene === 'GameScene' && (
-          <>
-            <div className="absolute top-0 left-0 z-10">
-              <HUD />
-            </div>
-            {isPaused && (
-              <div className="absolute inset-0 z-20">
-                <PauseMenu />
-              </div>
-            )}
-          </>
-        )}
+        <GuiRenderer currentScene={currentScene} isPaused={isPaused} />
         <GameCanvasWithLifecycle />
       </ScreenLayout>
     </ScreenContext.Provider>
