@@ -1,1 +1,2 @@
-export * from './eventBus';
+export * from './createEventBus';
+export * from './gameEvents';

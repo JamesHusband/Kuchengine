@@ -1,5 +1,4 @@
 import { gameEvents } from '../../bus';
-
 import type { Scenes } from 'phaser';
 
 export const handleSceneChange = (sceneManager: Scenes.SceneManager): void => {

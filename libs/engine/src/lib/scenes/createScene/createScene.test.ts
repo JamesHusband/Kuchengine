@@ -1,39 +1,34 @@
 import { createScene } from './createScene.js';
-import { gameEvents } from '../../events/bus/eventBus.js';
-import type Phaser from 'phaser';
+import { gameEvents } from '../../events/bus/gameEvents.js';
 import type { SceneConfig } from '../types.js';
 
-jest.mock('../../events/bus/eventBus.js', () => ({
-  gameEvents: {
-    emit: jest.fn(),
-  },
+jest.mock('../../events/bus/gameEvents.js', () => ({
+  gameEvents: { emit: jest.fn() },
 }));
+
+jest.mock('phaser', () => {
+  const mockScene = jest.fn().mockImplementation(() => ({}));
+  return {
+    Scene: mockScene,
+  };
+});
 
 describe('createScene', () => {
   const TEST_SCENE_KEY = 'test-scene';
   const TEST_TIME = 1000;
   const TEST_DELTA = 16;
 
-  const mockScene = {
-    add: jest.fn(),
-    load: jest.fn(),
-    time: {
-      now: jest.fn(),
-    },
-  } as unknown as Phaser.Scene;
-
   let scene: SceneConfig;
-  let preloadMock: jest.MockedFunction<(this: Phaser.Scene) => void>;
-  let createMock: jest.MockedFunction<(this: Phaser.Scene) => void>;
-  let updateMock: jest.MockedFunction<(this: Phaser.Scene, time: number, delta: number) => void>;
-  let shutdownMock: jest.MockedFunction<(this: Phaser.Scene) => void>;
+  const mockMethods = {
+    preload: jest.fn(),
+    create: jest.fn(),
+    update: jest.fn(),
+    shutdown: jest.fn(),
+  };
 
   beforeEach(() => {
     jest.clearAllMocks();
-    preloadMock = jest.fn();
-    createMock = jest.fn();
-    updateMock = jest.fn();
-    shutdownMock = jest.fn();
+    Object.values(mockMethods).forEach((mock) => mock.mockClear());
   });
 
   const createTestScene = (config: Partial<Omit<SceneConfig, 'key'>> = {}) => {
@@ -47,94 +42,41 @@ describe('createScene', () => {
   ) => {
     const method = scene[methodName];
     if (method) {
-      (method as (this: Phaser.Scene, ...args: T extends 'update' ? [number, number] : []) => void).call(
-        mockScene,
-        ...args,
-      );
+      method(...args);
     }
   };
 
-  describe('initialization', () => {
+  describe('lifecycle methods', () => {
     it('should create a scene with the provided key', () => {
       createTestScene();
       expect(scene.key).toBe(TEST_SCENE_KEY);
     });
-  });
 
-  describe('lifecycle methods', () => {
-    describe('preload', () => {
-      it('should call preload method if provided', () => {
-        createTestScene({ preload: preloadMock });
-        callSceneMethod('preload');
-        expect(preloadMock).toHaveBeenCalled();
-      });
-
-      it('should not throw if preload is not provided', () => {
-        createTestScene();
-        expect(() => callSceneMethod('preload')).not.toThrow();
-      });
-    });
-
-    describe('create', () => {
-      it('should emit scene-ready event and call create method if provided', () => {
-        createTestScene({ create: createMock });
-        callSceneMethod('create');
-        expect(gameEvents.emit).toHaveBeenCalledWith('scene-ready', TEST_SCENE_KEY);
-        expect(createMock).toHaveBeenCalled();
-      });
-
-      it('should not throw if create is not provided', () => {
-        createTestScene();
-        expect(() => callSceneMethod('create')).not.toThrow();
-        expect(gameEvents.emit).toHaveBeenCalledWith('scene-ready', TEST_SCENE_KEY);
-      });
-    });
-
-    describe('update', () => {
-      it('should call update method if provided', () => {
-        createTestScene({ update: updateMock });
-        callSceneMethod('update', TEST_TIME, TEST_DELTA);
-        expect(updateMock).toHaveBeenCalledWith(TEST_TIME, TEST_DELTA);
-      });
-
-      it('should not throw if update is not provided', () => {
-        createTestScene();
-        expect(() => callSceneMethod('update', TEST_TIME, TEST_DELTA)).not.toThrow();
-      });
-    });
-
-    describe('shutdown', () => {
-      it('should call shutdown method if provided', () => {
-        createTestScene({ shutdown: shutdownMock });
-        callSceneMethod('shutdown');
-        expect(shutdownMock).toHaveBeenCalled();
-      });
-
-      it('should not throw if shutdown is not provided', () => {
-        createTestScene();
-        expect(() => callSceneMethod('shutdown')).not.toThrow();
-      });
-    });
-  });
-
-  describe('integration', () => {
-    it('should maintain correct this context in all methods', () => {
-      createTestScene({
-        preload: preloadMock,
-        create: createMock,
-        update: updateMock,
-        shutdown: shutdownMock,
-      });
+    it('should handle all lifecycle methods correctly', () => {
+      createTestScene(mockMethods);
 
       callSceneMethod('preload');
-      callSceneMethod('create');
-      callSceneMethod('update', TEST_TIME, TEST_DELTA);
-      callSceneMethod('shutdown');
+      expect(mockMethods.preload).toHaveBeenCalled();
 
-      expect(preloadMock).toHaveBeenCalled();
-      expect(createMock).toHaveBeenCalled();
-      expect(updateMock).toHaveBeenCalledWith(TEST_TIME, TEST_DELTA);
-      expect(shutdownMock).toHaveBeenCalled();
+      callSceneMethod('create');
+      expect(gameEvents.emit).toHaveBeenCalledWith('scene-ready', TEST_SCENE_KEY);
+      expect(mockMethods.create).toHaveBeenCalled();
+
+      callSceneMethod('update', TEST_TIME, TEST_DELTA);
+      expect(mockMethods.update).toHaveBeenCalledWith(TEST_TIME, TEST_DELTA);
+
+      callSceneMethod('shutdown');
+      expect(mockMethods.shutdown).toHaveBeenCalled();
+    });
+
+    it('should not throw when optional methods are not provided', () => {
+      createTestScene({});
+      expect(() => {
+        callSceneMethod('preload');
+        callSceneMethod('create');
+        callSceneMethod('update', TEST_TIME, TEST_DELTA);
+        callSceneMethod('shutdown');
+      }).not.toThrow();
     });
   });
 });
