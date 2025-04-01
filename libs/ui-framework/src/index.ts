@@ -1,3 +1,3 @@
 export * from './lib/components';
-export * from './lib/hooks/useGame/useGame';
-export * from './lib/context';
+export * from './lib/core';
+export * from './lib/core/providers';

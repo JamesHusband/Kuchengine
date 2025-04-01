@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { ScreenProvider } from './ScreenProvider';
-import * as hooks from '../../hooks';
-import * as pauseHooks from '../../hooks/usePauseState';
+import * as hooks from '../../core/hooks';
+import * as pauseHooks from '../../core/hooks/usePauseState';
 
 jest.mock('@kuchen/engine', () => ({
   gameEvents: {

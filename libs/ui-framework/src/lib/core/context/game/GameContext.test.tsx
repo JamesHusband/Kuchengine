@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
-import { GameProvider } from './GameProvider';
-import * as hooks from '../../hooks';
+import { GameProvider } from './GameContext';
+import * as hooks from '../../core/hooks';
 
 // Mock the useGameState hook
 jest.mock('../../hooks', () => ({

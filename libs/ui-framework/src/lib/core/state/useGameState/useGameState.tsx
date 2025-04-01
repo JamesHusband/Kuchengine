@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useSceneListener } from '../useScene';
+import { useSceneListener } from '../../listeners';
 
 export const useGameState = () => {
   const [currentScene, setCurrentScene] = useState('MainMenuScene');
