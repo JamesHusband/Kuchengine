@@ -1,5 +1,5 @@
 import { useEffect, useRef, RefObject, useState } from 'react';
-import { createGame, destroyGame } from '@kuchen/engine';
+import { createInstance, destroyInstance } from '@kuchen/engine';
 import type Phaser from 'phaser';
 
 export type Scene = 'MainMenuScene' | 'GameScene';
@@ -11,14 +11,14 @@ export const useGame = (containerRef: RefObject<HTMLDivElement | null>) => {
 
   useEffect(() => {
     if (!initialized.current && containerRef.current) {
-      gameInstance.current = createGame(containerRef.current);
+      gameInstance.current = createInstance(containerRef.current);
       gameInstance.current?.events?.on('sceneChanged', setCurrentScene);
       initialized.current = true;
     }
 
     return () => {
       gameInstance.current?.events?.off('sceneChanged', setCurrentScene);
-      destroyGame();
+      destroyInstance();
       gameInstance.current = null;
       initialized.current = false;
     };

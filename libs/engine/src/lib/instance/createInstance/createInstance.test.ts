@@ -1,12 +1,12 @@
-import { createGame } from './createGame.js';
-import { setGameInstance } from '../gameInstance/gameInstance.js';
+import { createInstance } from './createInstance.js';
+import { setInstance } from '../setInstance/setInstance.js';
 import { exposeTestHook } from '../../debug/exposeTestHook.js';
 import { createGameConfig } from '../../config/createGame.config.js';
 import { initializeEventHandlers } from '../../events/handlers/index.js';
 import Phaser from 'phaser';
 
-jest.mock('../gameInstance/gameInstance.js', () => ({
-  setGameInstance: jest.fn(),
+jest.mock('../setInstance/setInstance.js', () => ({
+  setInstance: jest.fn(),
 }));
 
 jest.mock('../../debug/exposeTestHook', () => ({
@@ -61,41 +61,41 @@ describe('createGame', () => {
   });
 
   it('should create game instance with default config when no container provided', () => {
-    createGame();
+    createInstance();
     expect(createGameConfig).toHaveBeenCalledWith(undefined);
     expect(Phaser.Game).toHaveBeenCalledWith(mockConfig);
   });
 
   it('should create game instance with provided container', () => {
     const container = 'game-container';
-    createGame(container);
+    createInstance(container);
     expect(createGameConfig).toHaveBeenCalledWith(container);
     expect(Phaser.Game).toHaveBeenCalledWith(mockConfig);
   });
 
   it('should set game instance after creation', () => {
-    createGame();
+    createInstance();
     const gameInstance = (Phaser.Game as jest.Mock).mock.results[0].value;
-    expect(setGameInstance).toHaveBeenCalledWith(gameInstance);
+    expect(setInstance).toHaveBeenCalledWith(gameInstance);
   });
 
   it('should initialize event handlers after setting game instance', () => {
-    createGame();
+    createInstance();
     const gameInstance = (Phaser.Game as jest.Mock).mock.results[0].value;
     expect(initializeEventHandlers).toHaveBeenCalledWith(gameInstance);
   });
 
   it('should expose test hook after initialization', () => {
-    createGame();
+    createInstance();
     expect(exposeTestHook).toHaveBeenCalled();
   });
 
   it('should execute initialization steps in correct order', () => {
-    createGame();
+    createInstance();
 
     const createConfigCall = (createGameConfig as jest.Mock).mock.invocationCallOrder[0];
     const phaserGameCall = (Phaser.Game as jest.Mock).mock.invocationCallOrder[0];
-    const setInstanceCall = (setGameInstance as jest.Mock).mock.invocationCallOrder[0];
+    const setInstanceCall = (setInstance as jest.Mock).mock.invocationCallOrder[0];
     const initHandlersCall = (initializeEventHandlers as jest.Mock).mock.invocationCallOrder[0];
     const exposeHookCall = (exposeTestHook as jest.Mock).mock.invocationCallOrder[0];
 

@@ -1,4 +1,4 @@
-import { Menu } from '../Menu';
+import { Menu } from '../../components/Menu';
 import { Button } from '../../components/elements';
 import { sceneController } from '../../../core/controllers';
 
@@ -12,3 +12,4 @@ export const PauseMenu = () => {
     </Menu>
   );
 };
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
