@@ -1,6 +1,6 @@
-import { sceneEvents as sceneEventBus } from '../events';
+import { sceneEvents } from '../events';
 
-export const sceneEvents = {
-  notifySceneReady: (key: string) => sceneEventBus.emit('scene-ready', key),
-  onSceneReady: (callback: (key: string) => void) => sceneEventBus.subscribe('scene-ready', callback),
+export const sceneHooks = {
+  notifySceneReady: (key: string) => sceneEvents.emit('scene-ready', key),
+  onSceneReady: (callback: (key: string) => void) => sceneEvents.subscribe('scene-ready', callback),
 };
