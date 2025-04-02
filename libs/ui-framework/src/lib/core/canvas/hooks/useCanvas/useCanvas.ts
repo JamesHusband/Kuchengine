@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { getInstance } from '@kuchen/engine';
+import { getInstance } from '@core/instance';
 
 export const useCanvas = (containerRef: React.RefObject<HTMLDivElement | null>) => {
   useEffect(() => {

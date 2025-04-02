@@ -30,7 +30,7 @@
           "watchDepsName": "watch-deps"
         }
       },
-      "exclude": ["libs/engine/*"]
+      "exclude": ["libs/engine/*", "libs/core/instance/*", "libs/core/events/*", "libs/scenes/*"]
     },
     {
       "plugin": "@nx/react/router-plugin",
@@ -77,7 +77,7 @@
     },
     {
       "plugin": "@nx/js/typescript",
-      "include": ["libs/engine/*"],
+      "include": ["libs/engine/*", "libs/core/instance/*", "libs/core/events/*", "libs/scenes/*"],
       "options": {
         "typecheck": {
           "targetName": "typecheck"

@@ -6,17 +6,11 @@
     "outDir": "dist",
     "tsBuildInfoFile": "dist/tsconfig.lib.tsbuildinfo",
     "emitDeclarationOnly": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "forceConsistentCasingInFileNames": true,
-    "types": ["node"],
-    "lib": ["DOM", "ESNext"]
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "types": ["node"]
   },
   "include": ["src/**/*.ts"],
-  "references": [
-    {
-      "path": "../core/events/tsconfig.lib.json"
-    }
-  ],
+  "references": [],
   "exclude": ["jest.config.ts", "src/**/*.spec.ts", "src/**/*.test.ts"]
 }

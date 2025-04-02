@@ -1,10 +1,10 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "../../../tsconfig.base.json",
   "files": [],
   "include": [],
   "references": [
     {
-      "path": "../core/events"
+      "path": "../events"
     },
     {
       "path": "./tsconfig.lib.json"

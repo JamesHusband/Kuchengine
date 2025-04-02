@@ -1,4 +1,4 @@
-import { sceneEvents } from '../events';
+import { sceneEvents } from '@core/events';
 
 export const sceneHooks = {
   notifySceneReady: (key: string) => sceneEvents.emit('scene-ready', key),
