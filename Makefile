@@ -1,4 +1,5 @@
-.PHONY: dev test test-watch dep-graph help
+.PHONY: dev test test-watch dep-graph help clean lint format build \
+        tree tree-libs tree-app tree-ui tree-engine copy-tree
 
 # Default target
 .DEFAULT_GOAL := help
@@ -46,4 +47,26 @@ format: ## Format all files
 
 build: ## Build all projects
 	@echo "$(GREEN)Building projects...$(NC)"
-	nx run-many --target=build --all 
+	nx run-many --target=build --all
+
+## ========== FILE TREE HELPERS ==========
+
+tree: ## Show the full file tree
+	@echo "$(GREEN)Displaying full file tree...$(NC)"
+	@tree /F
+
+tree-libs: ## Show the libs/ file tree
+	@echo "$(GREEN)Displaying libs file tree...$(NC)"
+	@tree libs /F
+
+tree-app: ## Show the apps/ file tree
+	@echo "$(GREEN)Displaying apps file tree...$(NC)"
+	@tree apps /F
+
+tree-ui: ## Show the ui-framework structure
+	@echo "$(GREEN)Displaying UI framework file tree...$(NC)"
+	@tree libs\\ui-framework /F
+
+tree-engine: ## Show the engine lib structure
+	@echo "$(GREEN)Displaying engine file tree...$(NC)"
+	@tree libs\\engine /F

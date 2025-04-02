@@ -1,34 +1,33 @@
-let mockRender: jest.Mock;
-let mockCreateRoot: jest.Mock;
-
-jest.mock('react-dom/client', () => {
-  mockRender = jest.fn();
-  mockCreateRoot = jest.fn(() => ({ render: mockRender }));
-  return { createRoot: mockCreateRoot };
-});
+import { screen, waitFor } from '@testing-library/react';
+import '@testing-library/jest-dom';
 
 jest.mock('@kuchen/ui-framework', () => ({
-  UiShell: () => <div data-testid="mock-ui-shell">Mocked UI Shell</div>,
+  AppShell: () => <div data-testid="app-shell">App Shell</div>,
 }));
 
-beforeEach(() => {
-  jest.resetModules();
-  document.body.innerHTML = '';
-});
-
-describe('main.tsx', () => {
-  it('renders into root', async () => {
-    const root = document.createElement('div');
-    root.id = 'root';
-    document.body.appendChild(root);
-
-    await import('./main');
-
-    expect(mockCreateRoot).toHaveBeenCalledWith(root);
-    expect(mockRender).toHaveBeenCalledWith(expect.anything());
+describe('Main', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+    jest.resetModules();
+    document.body.innerHTML = '<div id="root"></div>';
   });
 
-  it('throws if root is not found', async () => {
-    await expect(import('./main')).rejects.toThrow('Root element not found');
+  it('should render AppShell when root element exists', async () => {
+    await import('./main');
+
+    await waitFor(() => {
+      expect(screen.getByTestId('app-shell')).toBeInTheDocument();
+      expect(screen.getByText('App Shell')).toBeInTheDocument();
+    });
+  });
+
+  it('should throw error when root element is not found', () => {
+    document.body.innerHTML = '';
+
+    expect(() => {
+      jest.isolateModules(() => {
+        require('./main');
+      });
+    }).toThrow('Root element not found');
   });
 });
