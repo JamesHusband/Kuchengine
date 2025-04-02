@@ -1,5 +1,5 @@
-import { destroyInstance } from './destroyInstance.js';
-import { Instance } from '../setInstance/setInstance.js';
+import { destroyInstance } from '../destroyInstance.js';
+import { Instance } from '../setInstance.js';
 
 type MockInstance = {
   Instance: {
@@ -7,7 +7,7 @@ type MockInstance = {
   } | null;
 };
 
-jest.mock('../setInstance/setInstance', () => {
+jest.mock('../setInstance', () => {
   const mockDestroy = jest.fn();
   return {
     Instance: {
@@ -30,7 +30,7 @@ describe('destroyInstance', () => {
   });
 
   it('should handle null game instance gracefully', () => {
-    const mockModule = jest.requireMock('../setInstance/setInstance') as MockInstance;
+    const mockModule = jest.requireMock('../setInstance') as MockInstance;
     mockModule.Instance = null;
 
     expect(() => destroyInstance()).not.toThrow();

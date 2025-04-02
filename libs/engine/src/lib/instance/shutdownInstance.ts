@@ -1,4 +1,4 @@
-import { destroyInstance, getInstance } from '../index';
+import { destroyInstance, getInstance } from './';
 
 export const shutdownInstance = () => {
   const game = getInstance();

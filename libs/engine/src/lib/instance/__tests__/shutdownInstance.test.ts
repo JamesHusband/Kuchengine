@@ -1,4 +1,4 @@
-import { shutdownInstance } from './shutdownInstance.js';
+import { shutdownInstance } from '../shutdownInstance.js';
 import { destroyInstance, getInstance } from '../index.js';
 
 jest.mock('../index.js', () => ({

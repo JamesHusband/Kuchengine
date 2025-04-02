@@ -1,8 +1,8 @@
 import Phaser from 'phaser';
-import { exposeTestHook } from '../../debug/exposeTestHook.js';
-import { initializeEventHandlers } from '../../events/handlers/index.js';
-import { createGameConfig } from '../../config/createGame.config.js';
-import { setInstance } from '../setInstance/setInstance.js';
+import { exposeTestHook } from '../debug/exposeTestHook';
+import { initializeEventHandlers } from '../events/handlers/index';
+import { createGameConfig } from '../config/createGame.config';
+import { setInstance } from './setInstance';
 
 export const createInstance = (container?: HTMLElement | string): Phaser.Game => {
   const config = createGameConfig(container || undefined);

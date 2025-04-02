@@ -1,11 +1,11 @@
-import { createInstance } from './createInstance.js';
-import { setInstance } from '../setInstance/setInstance.js';
+import { createInstance } from '../createInstance.js';
+import { setInstance } from '../setInstance.js';
 import { exposeTestHook } from '../../debug/exposeTestHook.js';
 import { createGameConfig } from '../../config/createGame.config.js';
 import { initializeEventHandlers } from '../../events/handlers/index.js';
 import Phaser from 'phaser';
 
-jest.mock('../setInstance/setInstance.js', () => ({
+jest.mock('../setInstance.js', () => ({
   setInstance: jest.fn(),
 }));
 

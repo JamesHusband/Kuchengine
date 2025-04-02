@@ -1,4 +1,4 @@
-import { Instance } from '../setInstance/setInstance';
+import { Instance } from './setInstance';
 
 export const destroyInstance = () => {
   Instance?.destroy(true);

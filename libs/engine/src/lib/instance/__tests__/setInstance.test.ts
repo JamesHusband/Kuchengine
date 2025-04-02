@@ -1,4 +1,4 @@
-import { setInstance, Instance } from './setInstance.js';
+import { setInstance, Instance } from '../setInstance.js';
 import Phaser from 'phaser';
 
 describe('setInstance', () => {
