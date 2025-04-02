@@ -1,17 +1,17 @@
-import { gameEvents } from '@kuchen/engine';
+import { systemEvents, sceneEvents } from '@kuchen/engine';
 
 export const sceneController = {
   changeTo: (key: string) => {
-    gameEvents.emit('scene-change', key);
+    sceneEvents.emit('scene-change', key);
   },
 
-  pauseGame: () => gameEvents.emit('game-paused'),
-  resumeGame: () => gameEvents.emit('game-resumed'),
+  pauseGame: () => systemEvents.emit('game-paused', void 0),
+  resumeGame: () => systemEvents.emit('game-resumed', void 0),
   restartGame: () => {
-    gameEvents.emit('game-restart');
-    gameEvents.emit('game-resumed');
+    systemEvents.emit('game-restart', void 0);
+    systemEvents.emit('game-resumed', void 0);
   },
-  openOptions: () => gameEvents.emit('open-options'),
-  goToMainMenu: () => gameEvents.emit('scene-change', 'MainMenuScene'),
-  goToGame: () => gameEvents.emit('scene-change', 'GameScene'),
+  openOptions: () => systemEvents.emit('open-options', void 0),
+  goToMainMenu: () => sceneEvents.emit('scene-change', 'MainMenuScene'),
+  goToGame: () => sceneEvents.emit('scene-change', 'GameScene'),
 };

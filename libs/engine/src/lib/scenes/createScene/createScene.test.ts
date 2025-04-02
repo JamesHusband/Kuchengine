@@ -1,9 +1,9 @@
 import { createScene } from './createScene.js';
-import { gameEvents } from '../../events/bus/gameEvents.js';
+import { sceneEvents } from '../../events/index.js';
 import type { SceneConfig } from '../types.js';
 
-jest.mock('../../events/bus/gameEvents.js', () => ({
-  gameEvents: { emit: jest.fn() },
+jest.mock('../../events', () => ({
+  sceneEvents: { emit: jest.fn() },
 }));
 
 jest.mock('phaser', () => {
@@ -59,7 +59,7 @@ describe('createScene', () => {
       expect(mockMethods.preload).toHaveBeenCalled();
 
       callSceneMethod('create');
-      expect(gameEvents.emit).toHaveBeenCalledWith('scene-ready', TEST_SCENE_KEY);
+      expect(sceneEvents.emit).toHaveBeenCalledWith('scene-ready', TEST_SCENE_KEY);
       expect(mockMethods.create).toHaveBeenCalled();
 
       callSceneMethod('update', TEST_TIME, TEST_DELTA);

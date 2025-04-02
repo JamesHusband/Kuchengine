@@ -2,7 +2,7 @@ import { createInstance } from '../createInstance.js';
 import { setInstance } from '../setInstance.js';
 import { exposeTestHook } from '../../debug/exposeTestHook.js';
 import { createGameConfig } from '../../config/createGame.config.js';
-import { initializeEventHandlers } from '../../events/handlers/index.js';
+import { initializeEventHandlers } from '../../events/index.js';
 import Phaser from 'phaser';
 
 jest.mock('../setInstance.js', () => ({
@@ -13,7 +13,7 @@ jest.mock('../../debug/exposeTestHook', () => ({
   exposeTestHook: jest.fn(),
 }));
 
-jest.mock('../../events/handlers', () => ({
+jest.mock('../../events', () => ({
   initializeEventHandlers: jest.fn(),
 }));
 
