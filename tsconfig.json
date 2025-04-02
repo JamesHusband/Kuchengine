@@ -23,6 +23,9 @@
     },
     {
       "path": "./libs/scenes"
+    },
+    {
+      "path": "./libs/core/debug"
     }
   ]
 }

@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-// import { exposeTestHook } from '../debug/exposeTestHook';
+import { exposeTestHook } from '@core/debug';
 import { initializeEventHandlers } from '@core/events';
 import { createGameConfig } from './config/createGame.config.js';
 import { setInstance } from './setInstance.js';
@@ -14,7 +14,7 @@ export const createInstance = (container?: HTMLElement | string): Phaser.Game =>
     initializeEventHandlers(game);
   });
 
-  // exposeTestHook();
+  exposeTestHook();
 
   return game;
 };

@@ -1,4 +1,4 @@
-import { getInstance } from '../instance';
+import { getInstance } from '@core/instance';
 
 declare global {
   interface Window {
