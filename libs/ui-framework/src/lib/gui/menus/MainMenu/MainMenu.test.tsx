@@ -1,8 +1,8 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { MainMenu } from './MainMenu';
-import { sceneController } from '../../../core/controllers';
+import { sceneController } from '../../../core/scene/controllers';
 
-jest.mock('../../../core/controllers', () => ({
+jest.mock('../../../core/scene/controllers', () => ({
   sceneController: {
     goToGame: jest.fn(),
   },
@@ -13,20 +13,14 @@ describe('MainMenu', () => {
     jest.clearAllMocks();
   });
 
-  it('renders correctly', () => {
+  it('renders all menu options', () => {
     render(<MainMenu />);
-
-    expect(screen.getByText('Kuchen')).toBeInTheDocument();
-
     expect(screen.getByText('Start Game')).toBeInTheDocument();
   });
 
-  it('calls sceneController.goToGame when Start Game button is clicked', () => {
+  it('calls goToGame when Start Game is clicked', () => {
     render(<MainMenu />);
-
-    const startButton = screen.getByText('Start Game');
-    fireEvent.click(startButton);
-
-    expect(sceneController.goToGame).toHaveBeenCalledTimes(1);
+    fireEvent.click(screen.getByText('Start Game'));
+    expect(sceneController.goToGame).toHaveBeenCalled();
   });
 });

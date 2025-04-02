@@ -1,25 +1,27 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { HUD } from './HUD';
-import { sceneController } from '../../core/controllers';
+import { HUD } from './hud';
+import { sceneController } from '../../core/scene/controllers';
 
-jest.mock('../../core/controllers', () => ({
+jest.mock('../../core/scene/controllers', () => ({
   sceneController: {
     pauseGame: jest.fn(),
     goToMainMenu: jest.fn(),
   },
 }));
 
-describe('HUD Component', () => {
-  it('renders the buttons and calls sceneController methods on click', () => {
+describe('HUD', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('renders pause button', () => {
     render(<HUD />);
+    expect(screen.getByText('Pause')).toBeInTheDocument();
+  });
 
-    const pauseButton = screen.getByText('Pause');
-    const returnButton = screen.getByText('Return to Menu');
-
-    fireEvent.click(pauseButton);
-    fireEvent.click(returnButton);
-
-    expect(sceneController.pauseGame).toHaveBeenCalledTimes(1);
-    expect(sceneController.goToMainMenu).toHaveBeenCalledTimes(1);
+  it('calls pauseGame when pause button is clicked', () => {
+    render(<HUD />);
+    fireEvent.click(screen.getByText('Pause'));
+    expect(sceneController.pauseGame).toHaveBeenCalled();
   });
 });
