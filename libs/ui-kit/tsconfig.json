@@ -3,13 +3,7 @@
   "include": [],
   "references": [
     {
-      "path": "../core/events"
-    },
-    {
-      "path": "../core/instance"
-    },
-    {
-      "path": "../ui-kit"
+      "path": "../../apps/kuchen"
     },
     {
       "path": "./tsconfig.lib.json"
