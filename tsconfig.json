@@ -10,10 +10,19 @@
       "path": "./apps/kuchen"
     },
     {
-      "path": "./libs/engine"
+      "path": "./libs/ui-framework"
     },
     {
-      "path": "./libs/ui-framework"
+      "path": "./libs/core/instance"
+    },
+    {
+      "path": "./libs/core/events"
+    },
+    {
+      "path": "./libs/scenes"
+    },
+    {
+      "path": "./libs/core/debug"
     }
   ]
 }

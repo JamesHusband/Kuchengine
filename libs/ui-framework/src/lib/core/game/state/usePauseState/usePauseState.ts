@@ -1,4 +1,4 @@
-import { systemEvents, sceneEvents } from '@kuchen/engine';
+import { systemEvents, sceneEvents } from '@core/events';
 import { useEffect, useState } from 'react';
 
 export const usePauseState = () => {
