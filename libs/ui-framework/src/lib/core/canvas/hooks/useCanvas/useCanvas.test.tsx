@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import { useRef } from 'react';
 import { useCanvas } from './useCanvas';
-import * as engine from '@kuchen/engine';
+import { getInstance } from '@core/instance';
 
-jest.mock('@kuchen/engine', () => ({
+jest.mock('@core/instance', () => ({
   getInstance: jest.fn(),
 }));
 
@@ -20,7 +20,7 @@ const TestComponent = () => {
 describe('useCanvas', () => {
   beforeEach(() => {
     jest.clearAllMocks();
-    (engine.getInstance as jest.Mock).mockReturnValue({ canvas: mockCanvas });
+    (getInstance as jest.Mock).mockReturnValue({ canvas: mockCanvas });
   });
 
   it('appends canvas if not already contained', () => {
@@ -40,7 +40,7 @@ describe('useCanvas', () => {
   });
 
   it('does nothing if game instance is undefined', () => {
-    (engine.getInstance as jest.Mock).mockReturnValue(undefined);
+    (getInstance as jest.Mock).mockReturnValue(undefined);
     render(<TestComponent />);
     const container = screen.getByTestId('container');
 
