@@ -4,7 +4,7 @@ export const colors = {
 
   // UI Colors
   sidebar: {
-    bg: '#0B0F17',
+    bg: 'blue',
     text: '#94A3B8',
     hover: '#0066FF',
     selected: '#0066FF',

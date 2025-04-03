@@ -1,7 +1,6 @@
 import { create } from '@storybook/theming/create';
 import { colors } from './colors';
 import { typography } from './typography';
-import { brand } from './brand';
 
 export const theme = create({
   base: 'light',
@@ -9,19 +8,12 @@ export const theme = create({
   // Typography
   fontBase: typography.fonts.base,
   fontCode: typography.fonts.code,
-
-  // Brand
-  brandTitle: brand.title,
-  brandUrl: brand.url,
-  brandImage: brand.logo,
-  brandTarget: brand.target,
-
   // Colors
-  colorPrimary: colors.primary,
+  colorPrimary: 'blue',
   colorSecondary: colors.secondary,
 
   // UI
-  appBg: colors.content.bg,
+  appBg: 'red',
   appContentBg: colors.content.bg,
   appPreviewBg: colors.content.bg,
   appBorderColor: colors.content.border,

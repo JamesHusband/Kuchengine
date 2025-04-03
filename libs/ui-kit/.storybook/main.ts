@@ -58,7 +58,7 @@ const config = {
   staticDirs: ['../public'],
   managerHead: (head) => `
     ${head}
-    <style>${getManagerStyles()}</style>
+ 
     <link rel="icon" type="image/svg+xml" href="./kuchen-logo.svg" />
   `,
   viteFinal: getViteConfig,
