@@ -1,11 +1,16 @@
+import type { Preview } from '@storybook/react';
 import '../../../apps/kuchen/src/styles.css';
+import KuchenTheme from './KuchenTheme';
 
-export const parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
-  controls: {
-    matchers: {
-      color: /(background|color)$/i,
-      date: /Date$/,
+const preview: Preview = {
+  parameters: {
+    docs: {
+      theme: KuchenTheme,
+    },
+    manager: {
+      theme: KuchenTheme,
     },
   },
 };
+
+export default preview;
