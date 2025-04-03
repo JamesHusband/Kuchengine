@@ -19,6 +19,4 @@ export const exposeTestHook = () => {
     getSceneKey: () => game.scene.getScenes(true)[0]?.scene.key,
     getInstance: () => game,
   };
-
-  console.debug('🧪 window.__kuchen attached:', window.__kuchen);
 };
