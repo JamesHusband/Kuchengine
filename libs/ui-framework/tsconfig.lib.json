@@ -30,9 +30,6 @@
     },
     {
       "path": "../core/instance/tsconfig.lib.json"
-    },
-    {
-      "path": "../engine/tsconfig.lib.json"
     }
   ]
 }

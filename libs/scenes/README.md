@@ -1,17 +1,33 @@
 # @kuchen/scenes
 
-Scene system for managing game states.
+Scene system for managing game states in Kuchen.
 
 ## Purpose
 
-Defines and manages all game scenes. Includes helpers for creation, transitions, and typed lookup.
+Encapsulates all logic related to Phaser scenes, including creation, transitions, events, and registration.
 
 ## Structure
 
-- `createScene/`: Utilities for standardizing scene creation
-- `sceneManager/`: Scene registration and lifecycle
-- `scenes/`: Game scenes like `MainMenuScene` and `GameScene`
+- `definitions/`:  
+  Contains actual scene classes such as `GameScene` and `MainMenuScene`.
 
-## Integration
+- `factory/`:  
+  Abstractions for creating scenes, currently via `createScene.ts`.
 
-Works with `@kuchen/core/events` to emit and respond to scene transitions.
+- `manager/`:  
+  Handles scene registration, switching, and teardown via the `SceneManager`.
+
+- `events/`:  
+  Emits and handles scene-specific events via a typed `EventBus`.
+
+- `map/`:  
+  Registry mapping scene keys to definitions and metadata.
+
+- `types.ts`:  
+  Shared types for keys, scene metadata, and more.
+
+## Usage
+
+```ts
+import { SceneManager, createScene, sceneMap } from '@kuchen/scenes';
+```

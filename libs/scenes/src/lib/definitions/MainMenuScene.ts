@@ -1,4 +1,4 @@
-import { createScene } from '../createScene';
+import { createScene } from '../factory';
 
 export const MainMenuScene = createScene('MainMenuScene', {
   create(this: Phaser.Scene) {

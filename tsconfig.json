@@ -10,9 +10,6 @@
       "path": "./apps/kuchen"
     },
     {
-      "path": "./libs/engine"
-    },
-    {
       "path": "./libs/ui-framework"
     },
     {
