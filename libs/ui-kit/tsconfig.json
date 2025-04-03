@@ -3,6 +3,9 @@
   "include": [],
   "references": [
     {
+      "path": "../../apps/kuchen"
+    },
+    {
       "path": "./tsconfig.lib.json"
     },
     {
