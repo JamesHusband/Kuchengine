@@ -1,7 +1,15 @@
-# debug
+# @kuchen/core/debug
 
-This library was generated with [Nx](https://nx.dev).
+Debug utilities for Kuchen games.
 
-## Running unit tests
+## Purpose
 
-Run `nx test debug` to execute the unit tests via [Jest](https://jestjs.io).
+Provides utilities and hooks for exposing internal state during development and testing.
+
+## Files
+
+- `exposeTestHook.ts`: Hook to expose internal test state
+
+## Notes
+
+Only used during development. Not intended for production builds.

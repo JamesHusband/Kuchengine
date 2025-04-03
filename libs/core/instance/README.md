@@ -1,7 +1,17 @@
-# instance
+# @kuchen/core/instance
 
-This library was generated with [Nx](https://nx.dev).
+Game instance lifecycle management for Kuchen.
 
-## Running unit tests
+## Purpose
 
-Run `nx test instance` to execute the unit tests via [Jest](https://jestjs.io).
+Handles the creation, teardown, and configuration of Phaser game instances.
+
+## Structure
+
+- `createInstance.ts`: Initializes the game
+- `shutdownInstance.ts`: Gracefully destroys the game
+- `config/`: Game config files
+
+## Usage
+
+Typically consumed by your app bootstrap (e.g., `main.tsx`) to spin up or reset the game.

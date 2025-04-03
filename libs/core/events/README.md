@@ -1,7 +1,17 @@
-# events
+# @kuchen/core/events
 
-This library was generated with [Nx](https://nx.dev).
+Typed event bus system for Kuchen.
 
-## Running unit tests
+## Purpose
 
-Run `nx test events` to execute the unit tests via [Jest](https://jestjs.io).
+Provides modular and strongly-typed event buses for system and scene-level communication.
+
+## Structure
+
+- `createEventBus.ts`: Generic bus creator
+- `system/`: System-level events
+- `scene/`: Scene-specific events and handlers
+
+## Tests
+
+Includes comprehensive test coverage for all bus systems.
