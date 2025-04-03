@@ -51,6 +51,7 @@ const config = [
       '**/components/**/*.tsx',
       '**/*.config.{ts,js}',
       '.storybook/**/*.{ts,tsx}',
+      '**/*.stories.{ts,tsx}',
     ],
     rules: {
       'import/no-default-export': 'off',
