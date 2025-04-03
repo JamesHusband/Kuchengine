@@ -10,7 +10,7 @@ swcJestConfig.swcrc = false;
 export default {
   displayName: 'scenes',
   preset: '../../jest.preset.js',
-  testEnvironment: 'node',
+  testEnvironment: 'jsdom',
   transform: {
     '^.+\\.[tj]s$': ['@swc/jest', swcJestConfig],
   },

@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 
-export const createEventBus = <T extends Record<string, any>>() => {
+export const createEventBus = <T extends Record<string, unknown>>() => {
   const emitter = new Phaser.Events.EventEmitter();
 
   return {

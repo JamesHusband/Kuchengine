@@ -1,4 +1,4 @@
-type EventCallback = (...args: any[]) => void;
+type EventCallback<T = boolean | void> = (arg: T) => void;
 
 const mockEmitter = {
   listeners: new Map<string, EventCallback[]>(),
@@ -17,10 +17,10 @@ const mockEmitter = {
       }
     }
   }),
-  emit: jest.fn((event: string, ...args: any[]) => {
+  emit: jest.fn((event: string, arg: boolean | void) => {
     const listeners = mockEmitter.listeners.get(event);
     if (listeners) {
-      listeners.forEach((callback) => callback(...args));
+      listeners.forEach((callback) => callback(arg));
     }
   }),
 };
