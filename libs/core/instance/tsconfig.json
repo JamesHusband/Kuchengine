@@ -4,6 +4,9 @@
   "include": [],
   "references": [
     {
+      "path": "../debug"
+    },
+    {
       "path": "../../scenes"
     },
     {
