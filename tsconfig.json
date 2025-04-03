@@ -23,6 +23,9 @@
     },
     {
       "path": "./libs/core/debug"
+    },
+    {
+      "path": "./libs/ui-kit"
     }
   ]
 }
