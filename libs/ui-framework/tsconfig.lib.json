@@ -23,8 +23,11 @@
     "eslint.config.cjs",
     "eslint.config.mjs"
   ],
-  "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx"],
+  "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx", "../gui/src/lib/renderer/GuiRenderer.tsx"],
   "references": [
+    {
+      "path": "../gui/tsconfig.lib.json"
+    },
     {
       "path": "../core/events/tsconfig.lib.json"
     },

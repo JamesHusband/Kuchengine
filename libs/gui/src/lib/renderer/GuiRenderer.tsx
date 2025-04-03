@@ -1,6 +1,5 @@
-import { MainMenu } from './menus/MainMenu/MainMenu';
-import { PauseMenu } from './menus/PauseMenu/PauseMenu';
-import { HUD } from './hud/hud';
+import { PauseMenu, MainMenu } from '../menu';
+import { HUD } from '../hud';
 
 interface GuiRendererProps {
   currentScene: string;

@@ -1,7 +1,7 @@
-import { ScreenLayout } from '../../../gui/layouts';
+import { ScreenLayout } from '../../../gui/layout';
 import { GameContainer } from '../../canvas/containers';
 import { useGameState, usePauseState } from '../../game/state';
-import { GuiRenderer } from '../../../gui/GuiRenderer';
+import { GuiRenderer } from '../../../../../../gui/src/lib/renderer/GuiRenderer';
 import { ScreenContext } from '../context';
 
 export const ScreenProvider = () => {

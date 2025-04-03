@@ -1,6 +1,6 @@
-import { Menu } from '../../components/Menu';
+import { Menu } from '../Menu';
 import { Button } from '@kuchen/ui-kit';
-import { sceneController } from '../../../core/scene/controllers';
+import { sceneController } from '@kuchen/ui-framework';
 
 export const PauseMenu = () => {
   return (

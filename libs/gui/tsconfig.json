@@ -3,6 +3,12 @@
   "include": [],
   "references": [
     {
+      "path": "../ui-framework"
+    },
+    {
+      "path": "../ui-kit"
+    },
+    {
       "path": "./tsconfig.lib.json"
     },
     {

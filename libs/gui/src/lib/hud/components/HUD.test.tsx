@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { HUD } from './hud';
+import { HUD } from './HUD';
 import { sceneController } from '../../core/scene/controllers';
 
 jest.mock('../../core/scene/controllers', () => ({
