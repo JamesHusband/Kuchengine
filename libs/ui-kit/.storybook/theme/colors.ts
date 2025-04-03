@@ -1,26 +1,26 @@
 export const colors = {
-  primary: '#0066FF',
-  secondary: '#0066FF',
+  primary: '#F0BB78', // Golden Orange
+  secondary: '#543A14', // Dark Brown
 
   // UI Colors
   sidebar: {
-    bg: 'blue',
-    text: '#94A3B8',
-    hover: '#0066FF',
-    selected: '#0066FF',
+    bg: '#FFF0DC', // Light Cream
+    text: '#543A14', // Dark Brown
+    hover: '#F0BB78', // Golden Orange
+    selected: '#F0BB78', // Golden Orange
   },
 
   // Content Colors
   content: {
     bg: '#FFFFFF',
-    text: '#1A202C',
-    border: '#E2E8F0',
+    text: '#131010', // Almost Black
+    border: '#F0BB78', // Golden Orange
   },
 
   // Form Colors
   form: {
-    bg: '#F8FAFC',
-    border: '#E2E8F0',
-    text: '#1A202C',
+    bg: '#FFF0DC', // Light Cream
+    border: '#F0BB78', // Golden Orange
+    text: '#131010', // Almost Black
   },
 } as const;

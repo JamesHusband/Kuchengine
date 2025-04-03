@@ -13,7 +13,7 @@ export const theme = create({
   colorSecondary: colors.secondary,
 
   // UI
-  appBg: 'red',
+  appBg: colors.content.bg,
   appContentBg: colors.content.bg,
   appPreviewBg: colors.content.bg,
   appBorderColor: colors.content.border,

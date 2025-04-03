@@ -9,7 +9,7 @@ const theme = create({
   // Brand
   brandTitle: 'Kuchen UI Kit',
   brandUrl: 'https://github.com/yourusername/kuchen',
-  brandImage: './kuchen-logo.svg',
+  brandImage: './fantakuchen.png',
   brandTarget: '_self',
 
   // Colors

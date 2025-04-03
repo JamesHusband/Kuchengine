@@ -26,24 +26,6 @@ const getViteConfig = async (config) =>
     },
   });
 
-// Manager styles
-const getManagerStyles = () => `
-  nav.sidebar-container,
-  div[role="main"] > div:first-child {
-    background-color: #0B0F17 !important;
-  }
-  nav.sidebar-container *,
-  div[role="main"] > div:first-child * {
-    color: #94A3B8 !important;
-  }
-  nav.sidebar-container button:hover {
-    color: #0066FF !important;
-  }
-  nav.sidebar-container [data-selected="true"] {
-    color: #0066FF !important;
-  }
-`;
-
 /** @type {import('@storybook/react-vite').StorybookConfig} */
 const config = {
   core: {
@@ -58,9 +40,7 @@ const config = {
   staticDirs: ['../public'],
   managerHead: (head) => `
     ${head}
- 
-    <link rel="icon" type="image/svg+xml" href="./kuchen-logo.svg" />
-  `,
+   `,
   viteFinal: getViteConfig,
 };
 
