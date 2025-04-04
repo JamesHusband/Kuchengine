@@ -1,5 +1,5 @@
 import { ScreenLayout } from '@kuchen/ui-kit';
-import { GameContainer } from '../../canvas/containers';
+import { GameContainer } from '@core/canvas';
 import { useGameState, usePauseState } from '../../game/state';
 import { GuiRenderer } from '@kuchen/gui';
 import { ScreenContext } from '../context';

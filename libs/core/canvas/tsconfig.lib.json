@@ -1,8 +1,8 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "../../../tsconfig.base.json",
   "compilerOptions": {
     "outDir": "dist",
-    "types": ["node", "@nx/react/typings/cssmodule.d.ts", "@nx/react/typings/image.d.ts", "@testing-library/jest-dom"],
+    "types": ["node", "@nx/react/typings/cssmodule.d.ts", "@nx/react/typings/image.d.ts"],
     "rootDir": "src",
     "jsx": "react-jsx",
     "tsBuildInfoFile": "dist/tsconfig.lib.tsbuildinfo"
@@ -26,7 +26,10 @@
   "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx"],
   "references": [
     {
-      "path": "../ui-framework/tsconfig.lib.json"
+      "path": "../instance/tsconfig.lib.json"
+    },
+    {
+      "path": "../../ui-framework/tsconfig.lib.json"
     }
   ]
 }

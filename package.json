@@ -83,6 +83,7 @@
     "libs/*",
     "libs/core/instance",
     "libs/core/events",
-    "libs/core/debug"
+    "libs/core/debug",
+    "libs/core/*"
   ]
 }

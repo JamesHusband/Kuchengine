@@ -3,18 +3,6 @@
   "include": [],
   "references": [
     {
-      "path": "../gui"
-    },
-    {
-      "path": "../core/events"
-    },
-    {
-      "path": "../core/instance"
-    },
-    {
-      "path": "../ui-kit"
-    },
-    {
       "path": "./tsconfig.lib.json"
     },
     {
