@@ -6,6 +6,9 @@
       "path": "../../libs/ui-framework"
     },
     {
+      "path": "../../libs/ui-kit"
+    },
+    {
       "path": "./tsconfig.app.json"
     },
     {

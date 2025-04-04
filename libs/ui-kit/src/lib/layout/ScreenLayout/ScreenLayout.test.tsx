@@ -1,12 +1,12 @@
-import { screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import { ScreenLayout } from '.';
-import { renderWithMocks } from '../../../test-utils';
 
 describe('ScreenLayout', () => {
   const mockChildren = <div data-testid="mock-child">Test Content</div>;
 
   beforeEach(() => {
-    renderWithMocks(<ScreenLayout>{mockChildren}</ScreenLayout>);
+    render(<ScreenLayout>{mockChildren}</ScreenLayout>);
   });
 
   it('should render without crashing', () => {
@@ -20,7 +20,7 @@ describe('ScreenLayout', () => {
 
   it('should have correct layout styles', () => {
     const layout = screen.getByTestId('screen-layout');
-    expect(layout).toHaveClass('w-full', 'h-full');
+    expect(layout).toHaveClass('w-full', 'h-full', 'bg-gray-900');
   });
 
   it('should have correct container styles', () => {

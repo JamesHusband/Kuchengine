@@ -1,7 +1,7 @@
-import { ScreenLayout } from '../../../gui/layout';
+import { ScreenLayout } from '@kuchen/ui-kit';
 import { GameContainer } from '../../canvas/containers';
 import { useGameState, usePauseState } from '../../game/state';
-import { GuiRenderer } from '../../../../../../gui/src/lib/renderer/GuiRenderer';
+import { GuiRenderer } from '@kuchen/gui';
 import { ScreenContext } from '../context';
 
 export const ScreenProvider = () => {
