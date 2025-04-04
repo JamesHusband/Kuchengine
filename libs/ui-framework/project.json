@@ -1,5 +1,0 @@
-{
-  "name": "ui-framework",
-  "sourceRoot": "libs/ui-framework/src",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json"
-}
