@@ -25,6 +25,9 @@
       "path": "./libs/core/debug"
     },
     {
+      "path": "./libs/gui"
+    },
+    {
       "path": "./libs/ui-kit"
     }
   ],

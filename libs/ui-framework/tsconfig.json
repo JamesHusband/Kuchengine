@@ -3,6 +3,9 @@
   "include": [],
   "references": [
     {
+      "path": "../gui"
+    },
+    {
       "path": "../core/events"
     },
     {
