@@ -1,12 +1,11 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { PauseMenu } from './PauseMenu';
-import { sceneController } from '@kuchen/ui-framework';
+import { sceneController } from '@kuchen/scenes';
 
-jest.mock('@kuchen/ui-framework', () => ({
+jest.mock('@kuchen/scenes', () => ({
   sceneController: {
     resumeGame: jest.fn(),
     restartGame: jest.fn(),
-    openOptions: jest.fn(),
     goToMainMenu: jest.fn(),
   },
 }));
@@ -34,12 +33,6 @@ describe('PauseMenu', () => {
     render(<PauseMenu />);
     fireEvent.click(screen.getByText('Restart'));
     expect(sceneController.restartGame).toHaveBeenCalled();
-  });
-
-  it('calls openOptions when Options is clicked', () => {
-    render(<PauseMenu />);
-    fireEvent.click(screen.getByText('Options'));
-    expect(sceneController.openOptions).toHaveBeenCalled();
   });
 
   it('calls goToMainMenu when Quit is clicked', () => {

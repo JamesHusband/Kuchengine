@@ -26,7 +26,10 @@
   "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx"],
   "references": [
     {
-      "path": "../ui-framework/tsconfig.lib.json"
+      "path": "../scenes/tsconfig.lib.json"
+    },
+    {
+      "path": "../ui-kit/tsconfig.lib.json"
     }
   ]
 }

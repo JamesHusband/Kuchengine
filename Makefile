@@ -92,10 +92,6 @@ tree-app: ## Show the apps/ file tree
 	@echo "$(GREEN)Displaying apps file tree...$(NC)"
 	@tree apps /F
 
-tree-ui: ## Show the ui-framework structure
-	@echo "$(GREEN)Displaying UI framework file tree...$(NC)"
-	@tree libs\\ui-framework /F
-
 tree-engine: ## Show the engine lib structure
 	@echo "$(GREEN)Displaying engine file tree...$(NC)"
 	@tree libs\\engine /F

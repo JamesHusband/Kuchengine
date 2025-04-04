@@ -10,9 +10,6 @@
       "path": "./apps/kuchen"
     },
     {
-      "path": "./libs/ui-framework"
-    },
-    {
       "path": "./libs/core/instance"
     },
     {
@@ -32,6 +29,9 @@
     },
     {
       "path": "./libs/core/canvas"
+    },
+    {
+      "path": "./libs/game"
     }
   ],
   "ts-node": {

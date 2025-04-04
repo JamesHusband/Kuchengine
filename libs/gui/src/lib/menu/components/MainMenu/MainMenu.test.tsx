@@ -1,8 +1,8 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { MainMenu } from './MainMenu';
-import { sceneController } from '@kuchen/ui-framework';
+import { sceneController } from '@kuchen/scenes';
 
-jest.mock('@kuchen/ui-framework', () => ({
+jest.mock('@kuchen/scenes', () => ({
   sceneController: {
     goToGame: jest.fn(),
   },

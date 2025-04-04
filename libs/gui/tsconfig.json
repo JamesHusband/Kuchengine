@@ -3,7 +3,10 @@
   "include": [],
   "references": [
     {
-      "path": "../ui-framework"
+      "path": "../scenes"
+    },
+    {
+      "path": "../ui-kit"
     },
     {
       "path": "./tsconfig.lib.json"

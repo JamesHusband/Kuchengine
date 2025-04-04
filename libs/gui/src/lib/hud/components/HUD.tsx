@@ -1,5 +1,5 @@
 import { Button } from '@kuchen/ui-kit';
-import { sceneController } from '@kuchen/ui-framework';
+import { sceneController } from '@kuchen/scenes';
 
 export const HUD = () => {
   return (

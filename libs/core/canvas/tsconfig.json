@@ -6,7 +6,10 @@
       "path": "../instance"
     },
     {
-      "path": "../../ui-framework"
+      "path": "../../game"
+    },
+    {
+      "path": "../../ui-kit"
     },
     {
       "path": "./tsconfig.lib.json"

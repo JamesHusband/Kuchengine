@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { useCanvas } from '../hooks/useCanvas';
 import { Canvas } from '@kuchen/ui-kit';
-import { useGame } from '@kuchen/ui-framework';
+import { useGame } from '@kuchen/game';
 
 export const GameContainer = () => {
   const containerRef = useRef<HTMLDivElement>(null);
