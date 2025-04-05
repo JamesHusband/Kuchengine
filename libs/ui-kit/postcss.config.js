@@ -1,3 +1,3 @@
-const baseConfig = require('../../apps/kuchen/postcss.config.js');
+const baseConfig = require('../../postcss.base.config.js');
 
 module.exports = baseConfig;
