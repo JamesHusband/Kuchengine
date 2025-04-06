@@ -3,15 +3,6 @@
   "include": [],
   "references": [
     {
-      "path": "../game"
-    },
-    {
-      "path": "../ui-kit"
-    },
-    {
-      "path": "../scenes"
-    },
-    {
       "path": "./tsconfig.lib.json"
     },
     {
