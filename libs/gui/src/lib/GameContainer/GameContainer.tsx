@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { useCanvas } from '../hooks/useCanvas';
+import { useCanvas } from '@kuchen/game';
 import { Canvas } from '@kuchen/ui-kit';
 import { useGame } from '@kuchen/game';
 

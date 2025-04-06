@@ -3,16 +3,13 @@
   "include": [],
   "references": [
     {
+      "path": "../core/debug"
+    },
+    {
       "path": "../scenes"
     },
     {
       "path": "../core/events"
-    },
-    {
-      "path": "../core/debug"
-    },
-    {
-      "path": "../core/instance"
     },
     {
       "path": "./tsconfig.lib.json"

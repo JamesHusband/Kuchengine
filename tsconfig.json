@@ -10,9 +10,6 @@
       "path": "./apps/kuchen"
     },
     {
-      "path": "./libs/core/instance"
-    },
-    {
       "path": "./libs/core/events"
     },
     {

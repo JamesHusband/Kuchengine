@@ -1,6 +1,6 @@
 import { type ReactElement } from 'react';
 import { ScreenLayout } from '@kuchen/ui-kit';
-import { GameContainer } from '@core/canvas';
+import { GameContainer } from '@kuchen/gui';
 import { useGameState, usePauseState } from '@kuchen/game';
 import { GuiRenderer } from '@kuchen/gui';
 import { ScreenContext } from '../context/ScreenContext';

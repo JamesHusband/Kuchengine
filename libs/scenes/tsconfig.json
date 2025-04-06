@@ -14,13 +14,10 @@
   "include": [],
   "references": [
     {
-      "path": "../gui"
-    },
-    {
       "path": "../game"
     },
     {
-      "path": "../core/canvas"
+      "path": "../gui"
     },
     {
       "path": "../ui-kit"

@@ -7,9 +7,6 @@
       "path": "../../game"
     },
     {
-      "path": "../instance"
-    },
-    {
       "path": "./tsconfig.lib.json"
     },
     {
