@@ -1,5 +1,5 @@
 import { Layout } from '@kuchen/ui-kit';
-import { ScreenProvider } from '@kuchen/scenes';
+import { ScreenProvider } from '../ScreenProvider';
 import { GameProvider } from '@kuchen/game';
 
 export const AppShell = () => {

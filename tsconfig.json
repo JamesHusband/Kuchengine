@@ -25,9 +25,6 @@
       "path": "./libs/ui-kit"
     },
     {
-      "path": "./libs/core/canvas"
-    },
-    {
       "path": "./libs/game"
     }
   ],
