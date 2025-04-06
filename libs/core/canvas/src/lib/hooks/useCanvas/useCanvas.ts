@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { getInstance } from '@core/instance';
+import { getInstance } from '@kuchen/game';
 
 export const useCanvas = (containerRef: React.RefObject<HTMLDivElement | null>) => {
   useEffect(() => {

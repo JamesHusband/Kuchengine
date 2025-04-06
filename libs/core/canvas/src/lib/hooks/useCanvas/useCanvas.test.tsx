@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import { useRef } from 'react';
 import { useCanvas } from './useCanvas';
-import { getInstance } from '@core/instance';
+import { getInstance } from '@kuchen/game';
 
-jest.mock('@core/instance', () => ({
+jest.mock('@kuchen/game', () => ({
   getInstance: jest.fn(),
 }));
 

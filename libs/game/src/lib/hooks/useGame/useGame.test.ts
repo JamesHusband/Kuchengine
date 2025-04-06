@@ -1,8 +1,8 @@
 import { renderHook } from '@testing-library/react';
 import { useGame } from './useGame';
-import { createInstance, shutdownInstance } from '@core/instance';
+import { createInstance, shutdownInstance } from '@kuchen/game';
 
-jest.mock('@core/instance', () => ({
+jest.mock('@kuchen/game', () => ({
   createInstance: jest.fn(),
   shutdownInstance: jest.fn(),
 }));

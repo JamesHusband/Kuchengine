@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { createInstance, shutdownInstance } from '@core/instance';
+import { createInstance, shutdownInstance } from '@kuchen/game';
 import type Phaser from 'phaser';
 
 export type Scene = 'MainMenuScene' | 'GameScene';

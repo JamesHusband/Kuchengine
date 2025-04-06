@@ -3,6 +3,9 @@
   "include": [],
   "references": [
     {
+      "path": "../../libs/gui"
+    },
+    {
       "path": "./tsconfig.app.json"
     },
     {

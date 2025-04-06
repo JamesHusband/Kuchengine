@@ -1,5 +1,5 @@
 import { exposeTestHook } from '../exposeTestHook';
-import { getInstance } from '@core/instance';
+import { getInstance } from '@kuchen/game';
 
 const mockInstance = {
   scene: {
@@ -7,7 +7,7 @@ const mockInstance = {
   },
 } as Phaser.Game;
 
-jest.mock('@core/instance', () => ({
+jest.mock('@kuchen/game', () => ({
   getInstance: jest.fn(() => mockInstance),
 }));
 
