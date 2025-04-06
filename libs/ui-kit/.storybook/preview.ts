@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook/react';
 import KuchenTheme from './KuchenTheme';
-import '../../../apps/kuchen/src/styles.css';
+import '../tailwind-imports.css';
 import { theme } from './theme';
 
 const preview: Preview = {

@@ -24,15 +24,5 @@
     "eslint.config.mjs"
   ],
   "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx"],
-  "references": [
-    {
-      "path": "../core/events/tsconfig.lib.json"
-    },
-    {
-      "path": "../scenes/tsconfig.lib.json"
-    },
-    {
-      "path": "../core/instance/tsconfig.lib.json"
-    }
-  ]
+  "references": []
 }

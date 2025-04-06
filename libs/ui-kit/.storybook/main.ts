@@ -18,7 +18,7 @@ const getViteConfig = async (config) =>
       postcss: {
         plugins: [
           tailwindcss({
-            config: join(__dirname, '../../../apps/kuchen/tailwind.config.js'),
+            config: join(__dirname, '../tailwind.config.js'),
           }),
           autoprefixer(),
         ],

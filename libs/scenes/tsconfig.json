@@ -14,21 +14,6 @@
   "include": [],
   "references": [
     {
-      "path": "../gui"
-    },
-    {
-      "path": "../game"
-    },
-    {
-      "path": "../core/canvas"
-    },
-    {
-      "path": "../ui-kit"
-    },
-    {
-      "path": "../core/events"
-    },
-    {
       "path": "./tsconfig.lib.json"
     },
     {
