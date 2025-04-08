@@ -1,4 +1,4 @@
-import { getInstance } from '@kuchen/game';
+import { getInstance } from '@engine/instance';
 
 declare global {
   interface Window {

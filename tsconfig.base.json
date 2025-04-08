@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "composite": true,
+    "baseUrl": ".", 
     "declarationMap": true,
     "emitDeclarationOnly": true,
     "importHelpers": true,
@@ -17,6 +18,8 @@
     "strict": true,
     "target": "es2022",
     "customConditions": ["development"],
-    "paths": {}
+    "paths": {
+      "@engine/instance": ["libs/engine/instance/src/index.ts"]
+    }
   }
 }
