@@ -1,2 +1,2 @@
 export * from './handlers';
-export * from './bus';
+export * from './scene-events';

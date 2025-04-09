@@ -1,5 +1,5 @@
 import type { Scenes } from 'phaser';
-import { sceneEvents } from '../../../bus';
+import { sceneEvents } from '../../../scene-events';
 export const handleSceneChange = (sceneManager: Scenes.SceneManager): void => {
   sceneEvents.on('scene-change', (target: string) => {
     const current = sceneManager.getScenes(true)[0];

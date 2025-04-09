@@ -1,5 +1,5 @@
 import { handleSceneChange } from './sceneChange.js';
-import { sceneEvents } from '../../../bus.js';
+import { sceneEvents } from '../../../scene-events.js';
 import type Phaser from 'phaser';
 
 jest.mock('../../../bus.js', () => ({
