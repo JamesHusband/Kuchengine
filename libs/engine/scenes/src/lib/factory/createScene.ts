@@ -1,6 +1,6 @@
 import type Phaser from 'phaser';
 import type { SceneConfig } from '../types';
-import { sceneHooks } from '../events';
+import { notifySceneReady } from '../events';
 
 export const createScene = (key: string, config: Omit<SceneConfig, 'key'>): SceneConfig => ({
   key,
@@ -8,7 +8,7 @@ export const createScene = (key: string, config: Omit<SceneConfig, 'key'>): Scen
     config.preload?.call(this);
   },
   create(this: Phaser.Scene) {
-    sceneHooks.notifySceneReady(key);
+    notifySceneReady(key);
     config.create?.call(this);
   },
   update(this: Phaser.Scene, time: number, delta: number) {
