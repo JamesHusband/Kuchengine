@@ -10,9 +10,6 @@
       "path": "./apps/kuchen"
     },
     {
-      "path": "./libs/scenes"
-    },
-    {
       "path": "./libs/core/debug"
     },
     {
@@ -29,6 +26,9 @@
     },
     {
       "path": "./libs/engine/events"
+    },
+    {
+      "path": "./libs/old/scenes"
     }
   ],
   "ts-node": {
