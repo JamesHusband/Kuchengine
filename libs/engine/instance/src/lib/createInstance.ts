@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import { exposeTestHook } from '@core/debug';
-import { initializeEventHandlers } from '@core/events';
+import { initializeEventHandlers } from '@engine/events';
 import { createGameConfig } from './config/createGame.config';
 import { setInstance } from './setInstance';
 

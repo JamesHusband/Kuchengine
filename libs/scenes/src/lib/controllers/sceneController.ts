@@ -1,4 +1,4 @@
-import { systemEvents, sceneEvents } from '@core/events';
+import { systemEvents, sceneEvents } from '@engine/events';
 
 export const sceneController = {
   changeTo: (key: string) => {

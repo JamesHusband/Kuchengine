@@ -3,6 +3,9 @@
   "include": [],
   "references": [
     {
+      "path": "../game"
+    },
+    {
       "path": "./tsconfig.lib.json"
     },
     {

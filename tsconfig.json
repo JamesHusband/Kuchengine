@@ -28,7 +28,7 @@
       "path": "./libs/engine/instance"
     },
     {
-      "path": "./libs/old/events"
+      "path": "./libs/engine/events"
     }
   ],
   "ts-node": {

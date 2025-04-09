@@ -35,10 +35,10 @@
       "exclude": [
         "libs/engine/*",
         "libs/core/instance/*",
-        "libs/core/events/*",
         "libs/scenes/*",
         "libs/core/debug/*",
-        "libs/engine/instance/*"
+        "libs/engine/instance/*",
+        "libs/engine/events/*"
       ]
     },
     {
@@ -89,10 +89,10 @@
       "include": [
         "libs/engine/*",
         "libs/core/instance/*",
-        "libs/core/events/*",
         "libs/scenes/*",
         "libs/core/debug/*",
-        "libs/engine/instance/*"
+        "libs/engine/instance/*",
+        "libs/engine/events/*"
       ],
       "options": {
         "typecheck": {

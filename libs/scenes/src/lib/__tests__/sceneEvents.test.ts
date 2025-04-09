@@ -1,7 +1,7 @@
-import { sceneEvents } from '@core/events';
+import { sceneEvents } from '@engine/events';
 import { sceneHooks } from '../events';
 
-jest.mock('@core/events', () => ({
+jest.mock('@engine/events', () => ({
   sceneEvents: {
     emit: jest.fn(),
     subscribe: jest.fn(),

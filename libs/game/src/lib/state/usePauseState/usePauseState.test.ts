@@ -1,8 +1,8 @@
 import { renderHook, act } from '@testing-library/react';
-import { systemEvents, sceneEvents } from '@core/events';
+import { systemEvents, sceneEvents } from '@engine/events';
 import { usePauseState } from './usePauseState';
 
-jest.mock('@core/events', () => ({
+jest.mock('@engine/events', () => ({
   systemEvents: {
     on: jest.fn(),
     off: jest.fn(),

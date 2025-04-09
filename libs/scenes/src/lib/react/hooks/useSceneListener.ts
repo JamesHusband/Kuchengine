@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { sceneEvents } from '@core/events';
+import { sceneEvents } from '@engine/events';
 
 export const useSceneListener = (onSceneChange: (scene: string) => void) => {
   useEffect(() => {

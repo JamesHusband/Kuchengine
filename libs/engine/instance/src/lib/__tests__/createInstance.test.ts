@@ -18,7 +18,7 @@ jest.mock('@core/debug', () => ({
   exposeTestHook: jest.fn(),
 }));
 
-jest.mock('@core/events', () => ({
+jest.mock('@engine/events', () => ({
   initializeEventHandlers: jest.fn(),
 }));
 
