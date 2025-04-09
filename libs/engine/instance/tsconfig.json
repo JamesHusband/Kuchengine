@@ -4,6 +4,15 @@
   "include": [],
   "references": [
     {
+      "path": "../events"
+    },
+    {
+      "path": "../../shared/debug"
+    },
+    {
+      "path": "../scenes"
+    },
+    {
       "path": "./tsconfig.lib.json"
     },
     {

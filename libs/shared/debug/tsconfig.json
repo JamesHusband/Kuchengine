@@ -4,7 +4,7 @@
   "include": [],
   "references": [
     {
-      "path": "../../engine/state"
+      "path": "../../engine/instance"
     },
     {
       "path": "./tsconfig.lib.json"
