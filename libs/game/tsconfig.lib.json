@@ -35,5 +35,9 @@
     "../engine/instance/src/lib/setInstance.ts",
     "../engine/instance/src/lib/index.ts"
   ],
-  "references": []
+  "references": [
+    {
+      "path": "../engine/scenes/tsconfig.lib.json"
+    }
+  ]
 }

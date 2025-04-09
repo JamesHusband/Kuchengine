@@ -3,6 +3,12 @@
   "include": [],
   "references": [
     {
+      "path": "../engine/scenes"
+    },
+    {
+      "path": "../ui-kit"
+    },
+    {
       "path": "../game"
     },
     {

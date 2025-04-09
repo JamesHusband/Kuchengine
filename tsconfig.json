@@ -28,7 +28,7 @@
       "path": "./libs/engine/events"
     },
     {
-      "path": "./libs/old/scenes"
+      "path": "./libs/engine/scenes"
     }
   ],
   "ts-node": {

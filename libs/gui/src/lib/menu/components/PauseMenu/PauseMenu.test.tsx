@@ -1,8 +1,8 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { PauseMenu } from './PauseMenu';
-import { sceneController } from '@kuchen/scenes';
+import { sceneController } from '@engine/scenes';
 
-jest.mock('@kuchen/scenes', () => ({
+jest.mock('@engine/scenes', () => ({
   sceneController: {
     resumeGame: jest.fn(),
     restartGame: jest.fn(),

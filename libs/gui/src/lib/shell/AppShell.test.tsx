@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { AppShell } from './AppShell';
 
-jest.mock('@kuchen/scenes', () => ({
+jest.mock('@engine/scenes', () => ({
   ScreenProvider: () => <div data-testid="screen-provider">Screen Provider</div>,
 }));
 

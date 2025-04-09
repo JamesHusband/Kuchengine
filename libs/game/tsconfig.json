@@ -3,6 +3,9 @@
   "include": [],
   "references": [
     {
+      "path": "../engine/scenes"
+    },
+    {
       "path": "./tsconfig.lib.json"
     },
     {

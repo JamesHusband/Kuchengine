@@ -1,4 +1,4 @@
-# @kuchen/scenes
+# @engine/scenes
 
 Scene system for managing game states in Kuchen.
 
@@ -29,5 +29,5 @@ Encapsulates all logic related to Phaser scenes, including creation, transitions
 ## Usage
 
 ```ts
-import { SceneManager, createScene, sceneMap } from '@kuchen/scenes';
+import { SceneManager, createScene, sceneMap } from '@engine/scenes';
 ```

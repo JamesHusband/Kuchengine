@@ -3,7 +3,7 @@ import { useGameState } from './useGameState';
 
 let sceneChangeCallback: (scene: string) => void = () => 'test';
 
-jest.mock('@kuchen/scenes', () => ({
+jest.mock('@engine/scenes', () => ({
   useSceneListener: jest.fn((callback) => {
     sceneChangeCallback = callback;
   }),
