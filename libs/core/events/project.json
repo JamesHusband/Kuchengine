@@ -1,5 +1,0 @@
-{
-  "name": "events",
-  "sourceRoot": "libs/core/events/src",
-  "$schema": "../../../node_modules/nx/schemas/project-schema.json"
-}

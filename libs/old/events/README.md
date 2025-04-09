@@ -1,4 +1,4 @@
-# @kuchen/core/events
+# @kuchen/core/eventsold
 
 Typed event bus system for Kuchen.
 
@@ -9,8 +9,8 @@ Provides modular and strongly-typed event buses for system and scene-level commu
 ## Structure
 
 - `createEventBus.ts`: Generic bus creator
-- `system/`: System-level events
-- `scene/`: Scene-specific events and handlers
+- `system/`: System-level eventsold
+- `scene/`: Scene-specific eventsold and handlers
 
 ## Tests
 

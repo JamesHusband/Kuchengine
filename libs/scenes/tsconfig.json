@@ -14,9 +14,6 @@
   "include": [],
   "references": [
     {
-      "path": "../core/events"
-    },
-    {
       "path": "./tsconfig.lib.json"
     },
     {
