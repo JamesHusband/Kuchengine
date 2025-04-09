@@ -14,7 +14,7 @@
     "./package.json": "./package.json"
   },
   "nx": {
-    "name": "engine/events"
+    "name": "events"
   },
   "dependencies": {}
 }
