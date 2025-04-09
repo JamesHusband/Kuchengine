@@ -1,5 +1,5 @@
 {
-  "name": "@kuchen/game",
+  "name": "@engine/state",
   "version": "0.0.1",
   "main": "./src/index.ts",
   "types": "./src/index.ts",
@@ -12,6 +12,6 @@
     "./package.json": "./package.json"
   },
   "nx": {
-    "name": "game"
+    "name": "state"
   }
 }

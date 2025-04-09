@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { useGameState, GameContext } from '@kuchen/game';
+import { useGameState, GameContext } from '@engine/state';
 
 export const GameProvider = ({ children }: { children: ReactNode }) => {
   const { currentScene } = useGameState();

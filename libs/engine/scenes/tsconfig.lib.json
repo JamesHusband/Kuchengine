@@ -6,13 +6,9 @@
     "declaration": true,
     "types": ["node"],
     "module": "ESNext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "bundler"
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["jest.config.ts", "src/**/*.spec.ts", "src/**/*.test.ts"],
-  "references": [
-    {
-      "path": "../events/tsconfig.lib.json"
-    }
-  ]
+  "references": []
 }

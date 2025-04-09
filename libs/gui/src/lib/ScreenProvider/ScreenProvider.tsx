@@ -1,7 +1,7 @@
 import { type ReactElement } from 'react';
 import { ScreenLayout } from '@kuchen/ui-kit';
 import { GameContainer } from '@kuchen/gui';
-import { useGameState, usePauseState } from '@kuchen/game';
+import { useGameState, usePauseState } from '@engine/state';
 import { GuiRenderer } from '@kuchen/gui';
 import { ScreenContext } from '@engine/scenes';
 

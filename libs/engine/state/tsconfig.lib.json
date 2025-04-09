@@ -1,5 +1,5 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "../../../tsconfig.base.json",
   "compilerOptions": {
     "outDir": "dist",
     "types": ["node", "@nx/react/typings/cssmodule.d.ts", "@nx/react/typings/image.d.ts"],
@@ -35,15 +35,5 @@
     "../engine/instance/src/lib/setInstance.ts",
     "../engine/instance/src/lib/index.ts"
   ],
-  "references": [
-    {
-      "path": "../engine/events/tsconfig.lib.json"
-    },
-    {
-      "path": "../engine/scenes/tsconfig.lib.json"
-    },
-    {
-      "path": "../engine/instance/tsconfig.lib.json"
-    }
-  ]
+  "references": []
 }

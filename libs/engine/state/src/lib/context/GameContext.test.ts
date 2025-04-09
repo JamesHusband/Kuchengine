@@ -7,9 +7,9 @@ describe('GameContext', () => {
 
   it('should have correct type structure', () => {
     const mockContextValue: GameContextType = {
-      currentScene: 'test-scene'
+      currentScene: 'test-scene',
     };
-    
+
     expect(typeof mockContextValue.currentScene).toBe('string');
   });
 });

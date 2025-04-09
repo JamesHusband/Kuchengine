@@ -3,13 +3,7 @@
   "include": [],
   "references": [
     {
-      "path": "../engine/scenes"
-    },
-    {
-      "path": "../ui-kit"
-    },
-    {
-      "path": "../game"
+      "path": "../engine/state"
     },
     {
       "path": "./tsconfig.lib.json"
