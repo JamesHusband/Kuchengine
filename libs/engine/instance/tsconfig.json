@@ -4,6 +4,9 @@
   "include": [],
   "references": [
     {
+      "path": "../../scenes"
+    },
+    {
       "path": "./tsconfig.lib.json"
     },
     {
