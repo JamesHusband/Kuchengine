@@ -12,16 +12,6 @@
     "types": ["node"]
   },
   "include": ["src/**/*.ts"],
-  "references": [
-    {
-      "path": "../events/tsconfig.lib.json"
-    },
-    {
-      "path": "../../shared/debug/tsconfig.lib.json"
-    },
-    {
-      "path": "../scenes/tsconfig.lib.json"
-    }
-  ],
+  "references": [],
   "exclude": ["jest.config.ts", "src/**/*.spec.ts", "src/**/*.test.ts"]
 }
