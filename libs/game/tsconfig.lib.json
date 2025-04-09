@@ -37,7 +37,13 @@
   ],
   "references": [
     {
+      "path": "../engine/events/tsconfig.lib.json"
+    },
+    {
       "path": "../engine/scenes/tsconfig.lib.json"
+    },
+    {
+      "path": "../engine/instance/tsconfig.lib.json"
     }
   ]
 }

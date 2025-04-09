@@ -1,5 +1,0 @@
-{
-  "name": "debug",
-  "sourceRoot": "libs/core/debug/src",
-  "$schema": "../../../node_modules/nx/schemas/project-schema.json"
-}

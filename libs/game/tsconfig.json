@@ -3,7 +3,13 @@
   "include": [],
   "references": [
     {
+      "path": "../engine/events"
+    },
+    {
       "path": "../engine/scenes"
+    },
+    {
+      "path": "../engine/instance"
     },
     {
       "path": "./tsconfig.lib.json"

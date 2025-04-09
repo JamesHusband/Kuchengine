@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { useGameState } from '../state';
+import { useGameState } from '../hooks/useGameState/useGameState';
 import { GameContext } from '../context';
 
 export const GameProvider = ({ children }: { children: ReactNode }) => {

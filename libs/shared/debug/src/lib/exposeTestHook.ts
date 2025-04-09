@@ -1,4 +1,6 @@
 import { getInstance } from '@engine/instance';
+import Phaser from 'phaser';
+
 
 declare global {
   interface Window {

@@ -85,6 +85,7 @@
     "libs/core/debug",
     "libs/core/*",
     "libs/engine/*",
-    "libs/old/*"
+    "libs/old/*",
+    "libs/shared/*"
   ]
 }
