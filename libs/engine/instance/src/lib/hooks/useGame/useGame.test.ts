@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react';
-import { useGame } from './useGame';
+import { useGame } from './useGame.js';
 import { createInstance, shutdownInstance } from '@engine/instance';
 
 jest.mock('@engine/instance', () => ({

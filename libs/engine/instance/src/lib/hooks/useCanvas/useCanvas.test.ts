@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react';
-import { useCanvas } from './useCanvas';
+import { useCanvas } from './useCanvas.js';
 import { getInstance } from '@engine/instance';
 
 jest.mock('@engine/instance', () => ({
