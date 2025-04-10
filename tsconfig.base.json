@@ -17,9 +17,6 @@
     "strict": true,
     "target": "es2022",
     "customConditions": ["development"],
-    "paths": {
-      "@kuchen/engine": ["./libs/engine/src/index.ts"],
-      "@kuchen/gui": ["./libs/gui/src/index.ts"]
-    }
+    "paths": {}
   }
 }
