@@ -1,11 +1,12 @@
 import { useRef } from 'react';
-import { useGameInstance, eventBus } from '@kuchen/engine';
+import { eventBus } from '@kuchen/engine';
 import { GameCanvas, AppLayout, GuiLayout, Button } from '@kuchen/gui';
+import { useGameInit } from '../runtime/lib/useGameInit';
 
 export const AppShell = () => {
   const gameRef = useRef<HTMLDivElement>(null);
 
-  useGameInstance(gameRef);
+  useGameInit(gameRef);
 
   return (
     <AppLayout>

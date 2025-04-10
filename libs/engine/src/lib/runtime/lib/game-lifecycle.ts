@@ -1,6 +1,4 @@
 import Phaser from 'phaser';
-import { registerScenes } from '../../scenes';
-import { registerSceneChangeHandler } from '../../events/events';
 import { setGame, getGame, clearGame } from './game-instance';
 
 let game: Phaser.Game | null = null;
@@ -12,22 +10,32 @@ export const GameConfig = {
   backgroundColor: 'red',
 };
 
-export const initializeGame = (container: HTMLDivElement): void => {
+interface GameInitOptions {
+  scenes: Phaser.Scene[];
+  onReady?: (instance: Phaser.Game) => void;
+  startScene?: string;
+}
+
+export const initializeGame = (container: HTMLDivElement, options: GameInitOptions): void => {
   if (game) return;
 
   const config: Phaser.Types.Core.GameConfig = {
     ...GameConfig,
     parent: container,
-    scene: registerScenes(),
+    scene: options.scenes,
   };
 
   game = new Phaser.Game(config);
-
   const instance = game;
 
   instance.events.once('ready', () => {
-    registerSceneChangeHandler(instance);
-    instance.scene.start('MainMenu');
+    if (options.onReady) {
+      options.onReady(instance);
+    }
+
+    if (options.startScene) {
+      instance.scene.start(options.startScene);
+    }
   });
 
   setGame(game);
