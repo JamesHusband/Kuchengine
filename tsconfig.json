@@ -10,13 +10,10 @@
       "path": "./apps/kuchen"
     },
     {
-      "path": "./libs/ui"
-    },
-    {
       "path": "./libs/engine"
     },
     {
-      "path": "./libs/engine"
+      "path": "./libs/gui"
     }
   ],
   "ts-node": {

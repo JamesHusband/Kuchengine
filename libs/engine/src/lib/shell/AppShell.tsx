@@ -1,13 +1,14 @@
 import { useRef } from 'react';
 import { useGameInstance, eventBus } from '@kuchen/engine';
+import { Layout } from '@kuchen/gui';
 
-export const App = () => {
+export const AppShell = () => {
   const phaserRef = useRef<HTMLDivElement>(null);
 
   useGameInstance(phaserRef);
 
   return (
-    <div style={{ position: 'relative' }}>
+    <Layout>
       <div ref={phaserRef} style={{ width: '100%', height: '100%' }} />
       <div
         style={{
@@ -43,6 +44,6 @@ export const App = () => {
           Start Game
         </button>
       </div>
-    </div>
+    </Layout>
   );
 };

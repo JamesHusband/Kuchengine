@@ -42,7 +42,7 @@
   ],
   "references": [
     {
-      "path": "../../libs/ui/tsconfig.lib.json"
+      "path": "../../libs/engine/tsconfig.lib.json"
     }
   ]
 }
