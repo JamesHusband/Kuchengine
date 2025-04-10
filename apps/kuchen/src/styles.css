@@ -6,7 +6,7 @@
 
 /* Game-specific styles */
 body {
-  @apply bg-gray-900;
+  @apply bg-red-900;
   background-image: url('/assets/images/menu-bg.jpg');
   background-size: cover;
   background-position: center;
