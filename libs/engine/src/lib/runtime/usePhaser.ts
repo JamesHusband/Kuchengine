@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 import { bootstrapGame } from './bootstrap';
-import { destroyGame } from "./destroyGame";
+import { destroyGame } from './destroyGame';
 
 export const usePhaser = (ref: React.RefObject<HTMLDivElement | null>) => {
   useEffect(() => {
@@ -10,7 +10,7 @@ export const usePhaser = (ref: React.RefObject<HTMLDivElement | null>) => {
     }
 
     return () => {
-      destroyGame(ref.current);
+      destroyGame();
     };
   }, [ref]);
 };
