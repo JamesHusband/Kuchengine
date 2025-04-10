@@ -3,13 +3,13 @@ import { useGameInstance, eventBus } from '@kuchen/engine';
 import { Layout } from '@kuchen/gui';
 
 export const AppShell = () => {
-  const phaserRef = useRef<HTMLDivElement>(null);
+  const gameRef = useRef<HTMLDivElement>(null);
 
-  useGameInstance(phaserRef);
+  useGameInstance(gameRef);
 
   return (
     <Layout>
-      <div ref={phaserRef} style={{ width: '100%', height: '100%' }} />
+      <div ref={gameRef} style={{ width: '100%', height: '100%' }} />
       <div
         style={{
           position: 'absolute',
