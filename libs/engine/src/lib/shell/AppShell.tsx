@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { useGameInstance, eventBus } from '@kuchen/engine';
-import { Layout } from '@kuchen/gui';
+import { GameCanvas, AppLayout, GuiLayout } from '@kuchen/gui';
 
 export const AppShell = () => {
   const gameRef = useRef<HTMLDivElement>(null);
@@ -8,16 +8,9 @@ export const AppShell = () => {
   useGameInstance(gameRef);
 
   return (
-    <Layout>
-      <div ref={gameRef} style={{ width: '100%', height: '100%' }} />
-      <div
-        style={{
-          position: 'absolute',
-          top: 10,
-          left: 10,
-          zIndex: 10,
-        }}
-      >
+    <AppLayout>
+      <GameCanvas gameRef={gameRef} />
+      <GuiLayout>
         <button
           style={{
             color: 'white',
@@ -43,7 +36,7 @@ export const AppShell = () => {
         >
           Start Game
         </button>
-      </div>
-    </Layout>
+      </GuiLayout>
+    </AppLayout>
   );
 };

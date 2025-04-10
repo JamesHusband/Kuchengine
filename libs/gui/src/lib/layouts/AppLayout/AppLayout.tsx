@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
 
-export const Layout = ({ children }: { children: ReactNode }) => {
+export const AppLayout = ({ children }: { children: ReactNode }) => {
   return <div style={{ position: 'relative' }}>{children}</div>;
 };

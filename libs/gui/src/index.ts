@@ -1,1 +1,2 @@
-export * from './lib/layout';
+export * from './lib/layouts';
+export * from './lib/components';
