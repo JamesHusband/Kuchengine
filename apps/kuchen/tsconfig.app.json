@@ -5,7 +5,14 @@
     "tsBuildInfoFile": "dist/tsconfig.app.tsbuildinfo",
     "jsx": "react-jsx",
     "lib": ["dom"],
-    "types": ["node", "@nx/react/typings/cssmodule.d.ts", "@nx/react/typings/image.d.ts", "vite/client", "react", "react-dom"],
+    "types": [
+      "node",
+      "@nx/react/typings/cssmodule.d.ts",
+      "@nx/react/typings/image.d.ts",
+      "vite/client",
+      "react",
+      "react-dom"
+    ],
     "rootDir": "src"
   },
   "exclude": [
@@ -33,5 +40,9 @@
     "../../libs/gui/src/lib/shell/AppShell.tsx",
     "../../libs/gui/src/lib/shell/index.ts"
   ],
-  "references": []
+  "references": [
+    {
+      "path": "../../libs/ui/tsconfig.lib.json"
+    }
+  ]
 }

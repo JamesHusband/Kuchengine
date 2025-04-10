@@ -1,9 +1,8 @@
-export function UI() {
-  return (
-    <div className={styles['container']}>
-      <h1>Welcome to UI!</h1>
-    </div>
-  );
-}
+import { createRoot } from 'react-dom/client';
+import { App } from './App';
 
-export default UI;
+export const mountUI = (): void => {
+  const container = document.getElementById('root');
+  if (!container) throw new Error('Missing #ui-overlay');
+  createRoot(container).render(<App />);
+};
