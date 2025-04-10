@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { useGameInstance, eventBus } from '@kuchen/engine';
-import { GameCanvas, AppLayout, GuiLayout } from '@kuchen/gui';
+import { GameCanvas, AppLayout, GuiLayout, Button } from '@kuchen/gui';
 
 export const AppShell = () => {
   const gameRef = useRef<HTMLDivElement>(null);
@@ -11,31 +11,8 @@ export const AppShell = () => {
     <AppLayout>
       <GameCanvas gameRef={gameRef} />
       <GuiLayout>
-        <button
-          style={{
-            color: 'white',
-            background: '#444',
-            border: 'none',
-            padding: '8px',
-            marginRight: '8px',
-            cursor: 'pointer',
-          }}
-          onClick={() => eventBus.emit('scene-change', 'MainMenu')}
-        >
-          Go to Menu
-        </button>
-        <button
-          style={{
-            color: 'white',
-            background: '#444',
-            border: 'none',
-            padding: '8px',
-            cursor: 'pointer',
-          }}
-          onClick={() => eventBus.emit('scene-change', 'Game')}
-        >
-          Start Game
-        </button>
+        <Button onClick={() => eventBus.emit('scene-change', 'MainMenu')}>Go to Menu</Button>
+        <Button onClick={() => eventBus.emit('scene-change', 'Game')}>Start Game</Button>
       </GuiLayout>
     </AppLayout>
   );
