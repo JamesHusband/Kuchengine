@@ -1,3 +1,1 @@
-export * from './bootstrap';
-export * from './destroyGame';
-export * from './usePhaser';
+export * from './useGameInstance';

@@ -1,10 +1,10 @@
 import { useRef } from 'react';
-import { usePhaser, eventBus } from '@kuchen/engine';
+import { useGameInstance, eventBus } from '@kuchen/engine';
 
 export const App = () => {
   const phaserRef = useRef<HTMLDivElement>(null);
 
-  usePhaser(phaserRef);
+  useGameInstance(phaserRef);
 
   return (
     <div style={{ position: 'relative' }}>

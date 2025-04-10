@@ -1,5 +1,4 @@
-import Phaser from 'phaser';
-import { createScene } from './helpers';
+import { createScene } from './lib/create-scene';
 
 export const createMainMenuScene = () =>
   createScene('MainMenu', (scene) => {
