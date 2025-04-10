@@ -8,27 +8,6 @@
     },
     {
       "path": "./apps/kuchen"
-    },
-    {
-      "path": "./libs/gui"
-    },
-    {
-      "path": "./libs/ui-kit"
-    },
-    {
-      "path": "./libs/engine/instance"
-    },
-    {
-      "path": "./libs/engine/events"
-    },
-    {
-      "path": "./libs/engine/scenes"
-    },
-    {
-      "path": "./libs/shared/debug"
-    },
-    {
-      "path": "./libs/engine/state"
     }
   ],
   "ts-node": {
