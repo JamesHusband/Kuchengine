@@ -1,4 +1,4 @@
-// export * from './register-scenes';
+export * from './register-scenes';
 
-export * from './GameScene';
-export * from './MainMenu';
+// export * from './lib/GameScene';
+// export * from './MainMenu';

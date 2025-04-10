@@ -1,4 +1,4 @@
-import { createScene } from './lib/create-scene';
+import { createScene } from './create-scene';
 
 export const createMainMenuScene = () =>
   createScene('MainMenu', (scene) => {

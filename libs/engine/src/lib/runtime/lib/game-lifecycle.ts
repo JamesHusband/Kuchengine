@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { createMainMenuScene, createGameScene } from '@kuchen/engine';
+import { registerScenes } from '../../scenes';
 import { registerSceneChangeHandler } from '../../events/events';
 import { setGame, getGame, clearGame } from './game-instance';
 
@@ -18,7 +18,7 @@ export const initializeGame = (container: HTMLDivElement): void => {
   const config: Phaser.Types.Core.GameConfig = {
     ...GameConfig,
     parent: container,
-    scene: [createMainMenuScene(), createGameScene()],
+    scene: registerScenes(),
   };
 
   game = new Phaser.Game(config);
