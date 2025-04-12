@@ -82,8 +82,10 @@
     "apps/*",
     "libs/*",
     "libs/core/instance",
-    "libs/core/events",
     "libs/core/debug",
-    "libs/core/*"
+    "libs/core/*",
+    "libs/engine/*",
+    "libs/old/*",
+    "libs/shared/*"
   ]
 }

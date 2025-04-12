@@ -1,6 +1,6 @@
 import { createRoot } from 'react-dom/client';
-import { AppShell } from './shell';
+import { AppShell } from '@kuchen/engine';
 
-const rootElement = document.getElementById('root');
-if (!rootElement) throw new Error('Root element not found');
-createRoot(rootElement).render(<AppShell />);
+const container = document.getElementById('root');
+if (!container) throw new Error('Missing #ui-overlay');
+createRoot(container).render(<AppShell />);

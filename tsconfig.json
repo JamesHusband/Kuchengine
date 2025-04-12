@@ -10,28 +10,10 @@
       "path": "./apps/kuchen"
     },
     {
-      "path": "./libs/core/instance"
-    },
-    {
-      "path": "./libs/core/events"
-    },
-    {
-      "path": "./libs/scenes"
-    },
-    {
-      "path": "./libs/core/debug"
+      "path": "./libs/engine"
     },
     {
       "path": "./libs/gui"
-    },
-    {
-      "path": "./libs/ui-kit"
-    },
-    {
-      "path": "./libs/core/canvas"
-    },
-    {
-      "path": "./libs/game"
     }
   ],
   "ts-node": {

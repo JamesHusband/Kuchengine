@@ -1,5 +1,0 @@
-{
-  "name": "scenes",
-  "sourceRoot": "libs/scenes/src",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json"
-}
