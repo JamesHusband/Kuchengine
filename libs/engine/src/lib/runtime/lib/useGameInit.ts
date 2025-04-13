@@ -11,7 +11,6 @@ export const useGameInit = (containerRef: React.RefObject<HTMLDivElement | null>
     initializeGame(containerRef.current, {
       scenes: registerScenes(),
       onReady: (instance) => {
-        console.info('Game Ready');
         registerSceneChangeHandler(instance);
       },
     });
