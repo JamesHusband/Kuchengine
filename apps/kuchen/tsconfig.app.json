@@ -40,5 +40,9 @@
     "../../libs/gui/src/lib/shell/AppShell.tsx",
     "../../libs/gui/src/lib/shell/index.ts"
   ],
-  "references": []
+  "references": [
+    {
+      "path": "../../libs/gui/tsconfig.lib.json"
+    }
+  ]
 }
