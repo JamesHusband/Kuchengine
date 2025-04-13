@@ -3,6 +3,7 @@
   "include": [],
   "references": [
     {
+      "path": "../../libs/gui"
       "path": "../../libs/engine"
     },
     {
