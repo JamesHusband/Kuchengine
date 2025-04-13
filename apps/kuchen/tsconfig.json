@@ -4,6 +4,7 @@
   "references": [
     {
       "path": "../../libs/gui"
+      "path": "../../libs/engine"
     },
     {
       "path": "./tsconfig.app.json"
