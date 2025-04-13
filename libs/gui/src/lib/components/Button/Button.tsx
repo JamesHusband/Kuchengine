@@ -9,14 +9,7 @@ export const Button: React.FC<ButtonProps> = ({ children, onClick }) => {
   return (
     <button
       onClick={onClick}
-      style={{
-        color: 'white',
-        background: '#444',
-        border: 'none',
-        padding: '8px',
-        marginRight: '8px',
-        cursor: 'pointer',
-      }}
+      className="text-white bg-gray-700 border-none px-4 py-2 mr-2 cursor-pointer hover:bg-gray-600 transition-colors"
     >
       {children}
     </button>

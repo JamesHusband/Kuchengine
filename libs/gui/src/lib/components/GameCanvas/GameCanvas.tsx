@@ -5,5 +5,5 @@ interface GameCanvasProps {
 }
 
 export const GameCanvas: React.FC<GameCanvasProps> = ({ gameRef }) => {
-  return <div ref={gameRef} style={{ width: '100%', height: '100%' }} />;
+  return <div ref={gameRef} className="w-full h-full" />;
 };
