@@ -42,7 +42,6 @@
   ],
   "references": [
     {
-      "path": "../../libs/gui/tsconfig.lib.json"
       "path": "../../libs/engine/tsconfig.lib.json"
     }
   ]

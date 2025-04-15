@@ -3,9 +3,10 @@
   "compilerOptions": {
     "outDir": "./out-tsc/jest",
     "types": ["jest", "node"],
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
-    "forceConsistentCasingInFileNames": true
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "forceConsistentCasingInFileNames": true,
+    "customConditions": ["development"]
   },
   "include": ["jest.config.ts", "src/**/*.test.ts", "src/**/*.spec.ts", "src/**/*.d.ts"],
   "references": [

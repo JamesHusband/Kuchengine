@@ -1,42 +1,50 @@
-import { jest } from '@jest/globals';
-import { act } from 'react';
-import { waitFor } from '@testing-library/dom';
+import { createRoot } from 'react-dom/client';
+import { AppShell } from '@kuchen/engine';
 
-jest.mock('./shell', () => ({
-  AppShell: () => <div data-testid="app-shell" />,
+jest.mock('react-dom/client', () => ({
+  createRoot: jest.fn().mockReturnValue({
+    render: jest.fn(),
+  }),
+}));
+
+jest.mock('@kuchen/engine', () => ({
+  AppShell: jest.fn(() => <div>Mock AppShell</div>),
 }));
 
 describe('main.tsx', () => {
+  let container: HTMLElement;
+
   beforeEach(() => {
-    document.body.innerHTML = '';
-    jest.resetModules();
+    jest.clearAllMocks();
+
+    container = document.createElement('div');
+    container.id = 'root';
+    document.body.appendChild(container);
   });
 
-  it('renders AppShell', async () => {
-    const root = document.createElement('div');
-    root.id = 'root';
-    document.body.appendChild(root);
+  afterEach(() => {
+    if (document.body.contains(container)) {
+      document.body.removeChild(container);
+    }
+  });
 
-    await act(async () => {
-      await import('./main');
-    });
+  it('should throw an error when root element is missing', () => {
+    document.body.removeChild(container);
 
-    await waitFor(() => {
-      expect(document.querySelector('[data-testid="app-shell"]')).toBeInTheDocument();
+    jest.isolateModules(() => {
+      expect(() => {
+        require('./main');
+      }).toThrow('Missing #root');
     });
   });
 
-  it('throws if root is not found', async () => {
-    let error: Error | undefined;
+  it('should create root and render AppShell when root element exists', () => {
+    require('./main');
 
-    await act(async () => {
-      try {
-        await import('./main');
-      } catch (e) {
-        error = e as Error;
-      }
-    });
+    expect(createRoot).toHaveBeenCalledWith(container);
 
-    expect(error?.message).toBe('Root element not found');
+    const mockRoot = createRoot(container);
+
+    expect(mockRoot.render).toHaveBeenCalledWith(<AppShell />);
   });
 });
