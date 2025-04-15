@@ -15,5 +15,3 @@
 Kuchen aims to provide a reusable, testable, and composable foundation for building modern 2D games.
 
 ## 🧁 Made with love and too much coffee
-
-Testing CI Jobs
