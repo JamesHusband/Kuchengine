@@ -31,7 +31,6 @@ jobs:
             echo "::error ::Jest failed";
             exit 1;
           }
-      
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
         with:
