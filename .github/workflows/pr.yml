@@ -4,11 +4,16 @@ on:
   pull_request:
 
 jobs:
-  pull-request-checks:
+  check:
     runs-on: ubuntu-latest
 
+    env:
+      DEBUG: '*'
+      NX_VERBOSE_LOGGING: true
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -19,26 +24,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Nx CLI
-        run: npm install -g nx
-
-      - name: Debug Info
+      - name: Run tests (CI mode, skip ESLint)
         run: |
-          echo "Node version: $(node -v)"
-          echo "NPM version: $(npm -v)"
-          echo "Nx version: $(nx --version)"
-          echo "Directory contents:"
-          ls -la
-          echo "Package.json contents:"
-          cat package.json
-
-      - name: Run tests with coverage
-        run: |
-          echo "Running tests..."
-          nx run-many --target=test --all --coverage --ci --verbose --skip-nx-cache
-        env:
-          DEBUG: '*'
-          NX_VERBOSE_LOGGING: 'true'
+          echo "Running Nx tests..."
+          npx nx run-many --target=test --all --coverage --ci --skip-nx-cache --skip-eslint || {
+            echo "::error ::Tests failed";
+            exit 1;
+          }
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
