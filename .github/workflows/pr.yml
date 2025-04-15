@@ -20,7 +20,7 @@ jobs:
         run: npm ci
 
       - name: Run tests with coverage
-        run: npm run test:ci
+        run: nx run-many --target=test --all --coverage --ci --verbose
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
