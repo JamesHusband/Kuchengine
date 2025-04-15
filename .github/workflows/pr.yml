@@ -24,14 +24,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run tests (CI mode, skip ESLint)
+      - name: Run Jest tests directly (bypass Nx)
         run: |
-          echo "Running Nx tests..."
-          npx nx run-many --target=test --all --coverage --ci --skip-nx-cache --skip-eslint || {
-            echo "::error ::Tests failed";
+          echo "Running Jest directly..."
+          npx jest --ci --coverage || {
+            echo "::error ::Jest failed";
             exit 1;
           }
-
+      
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
         with:
