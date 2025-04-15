@@ -4,7 +4,8 @@ on:
   pull_request:
 
 jobs:
-  test:
+  pull-request-checks:
+    name: Pull Request Checks
     runs-on: ubuntu-latest
 
     steps:
