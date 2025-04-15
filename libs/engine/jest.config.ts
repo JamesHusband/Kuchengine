@@ -16,5 +16,4 @@ export default {
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'html'],
   coverageDirectory: 'test-output/jest/coverage',
-  setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
 };
