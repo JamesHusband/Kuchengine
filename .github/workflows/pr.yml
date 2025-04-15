@@ -4,7 +4,7 @@ on:
   pull_request:
 
 jobs:
-  check:
+  pull-request-checks:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,8 +19,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Install Nx CLI
+        run: npm install -g nx
+
       - name: Run tests with coverage
-        run: nx run-many --target=test --all --coverage --ci --verbose
+        run: npm run test:ci
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
