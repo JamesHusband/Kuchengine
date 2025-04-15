@@ -2,7 +2,9 @@
   "name": "@kuchen/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "test:ci": "nx run-many --target=test --all --coverage --ci"
+  },
   "private": true,
   "dependencies": {
     "phaser": "^3.88.2",

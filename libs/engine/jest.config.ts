@@ -15,5 +15,15 @@ export default {
     '^.+\\.[tj]sx?$': ['@swc/jest', swcJestConfig],
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'html'],
-  coverageDirectory: 'test-output/jest/coverage',
+  coverageDirectory: '../../coverage/libs/engine',
+  collectCoverage: true,
+  coverageReporters: ['text', 'lcov', 'clover'],
+  coverageThreshold: {
+    global: {
+      branches: 80,
+      functions: 80,
+      lines: 80,
+      statements: 80,
+    },
+  },
 };
