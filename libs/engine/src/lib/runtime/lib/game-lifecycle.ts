@@ -5,8 +5,6 @@ let game: Phaser.Game | null = null;
 
 export const GameConfig = {
   type: Phaser.AUTO,
-  width: 800,
-  height: 600,
   backgroundColor: 'red',
 };
 
@@ -14,6 +12,8 @@ interface GameInitOptions {
   scenes: Phaser.Scene[];
   onReady?: (instance: Phaser.Game) => void;
   startScene?: string;
+  width: number;
+  height: number;
 }
 
 export const initializeGame = (container: HTMLDivElement, options: GameInitOptions): void => {
@@ -23,6 +23,8 @@ export const initializeGame = (container: HTMLDivElement, options: GameInitOptio
     ...GameConfig,
     parent: container,
     scene: options.scenes,
+    width: options.width,
+    height: options.height,
   };
 
   game = new Phaser.Game(config);
