@@ -48,3 +48,5 @@ test-output
 
 libs/ui-kit/node_modules
 storybook-static
+.cursor/rules/nx-rules.mdc
+.github/instructions/nx.instructions.md

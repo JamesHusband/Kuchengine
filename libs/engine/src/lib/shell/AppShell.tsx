@@ -1,20 +1,19 @@
 import { useRef } from 'react';
-import { eventBus } from '@kuchen/engine';
-import { GameCanvas, AppLayout, GuiLayout, Button } from '@kuchen/gui';
+import { GameCanvas, AppLayout } from '@kuchen/gui';
 import { useGameInit } from '../runtime/lib/useGameInit';
+import { useSceneKey } from '../events/lib/hooks/useSceneKey';
+import { MainMenu } from '@kuchen/gui';
 
 export const AppShell = () => {
   const gameRef = useRef<HTMLDivElement>(null);
-
   useGameInit(gameRef);
 
+  const sceneKey = useSceneKey();
+  const showGui = sceneKey === 'MainMenu' || sceneKey === 'Game';
   return (
     <AppLayout>
       <GameCanvas gameRef={gameRef} />
-      <GuiLayout>
-        <Button onClick={() => eventBus.emit('scene-change', 'MainMenu')}>Go to Menu</Button>
-        <Button onClick={() => eventBus.emit('scene-change', 'Game')}>Start Game</Button>
-      </GuiLayout>
+      {showGui && <MainMenu />}
     </AppLayout>
   );
 };
