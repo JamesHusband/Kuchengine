@@ -1,5 +1,4 @@
 import { createRoot } from 'react-dom/client';
-import { AppShell } from '@kuchen/engine';
 
 jest.mock('react-dom/client', () => ({
   createRoot: jest.fn().mockReturnValue({

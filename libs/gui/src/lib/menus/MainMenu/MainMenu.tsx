@@ -1,5 +1,5 @@
-import { GuiLayout } from '../layouts/GuiLayout';
-import { Button } from '../components';
+import { GuiLayout } from '../../layouts/GuiLayout';
+import { Button } from '../../components';
 import { eventBus } from '@kuchen/engine';
 
 export const MainMenu = () => {
