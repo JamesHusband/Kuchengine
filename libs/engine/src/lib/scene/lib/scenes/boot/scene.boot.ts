@@ -1,5 +1,5 @@
-import { createScene } from '../create-scene';
-import { eventBus } from '../../../events';
+import { createScene } from '../../utils';
+import { eventBus } from '../../../../events';
 
 export const createBootScene = () =>
   createScene('Boot', (scene) => {

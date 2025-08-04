@@ -1,6 +1,6 @@
 import { createMainMenuScene } from './scene.main-menu';
 
-jest.mock('../create-scene', () => ({
+jest.mock('../../create-scene', () => ({
   createScene: jest.fn().mockImplementation((key, render) => {
     const scene = {
       sys: { settings: { key } },

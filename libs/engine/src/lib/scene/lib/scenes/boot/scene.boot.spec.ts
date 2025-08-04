@@ -1,6 +1,6 @@
 import { createBootScene } from './scene.boot';
 
-jest.mock('../create-scene', () => ({
+jest.mock('../../../utils', () => ({
   createScene: jest.fn().mockImplementation((key, render) => {
     const scene = {
       sys: { settings: { key } },

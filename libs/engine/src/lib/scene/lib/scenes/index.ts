@@ -1,3 +1,3 @@
-export * from './scene.main-menu';
-export * from './scene.game';
-export * from './scene.boot';
+export * from './boot';
+export * from './game';
+export * from './menu';
