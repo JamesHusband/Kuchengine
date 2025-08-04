@@ -1,5 +1,5 @@
 import { registerScenes } from './register-scenes';
-import { createBootScene, createMainMenuScene, createGameScene } from './scenes/index';
+import { createBootScene, createMainMenuScene, createGameScene } from '../../scenes';
 
 type MockScene = {
   sys: {
@@ -10,7 +10,7 @@ type MockScene = {
 };
 
 // Mock the scene creators
-jest.mock('./scenes/index', () => ({
+jest.mock('../../scenes', () => ({
   createBootScene: jest.fn().mockReturnValue({ sys: { settings: { key: 'Boot' } } }),
   createMainMenuScene: jest.fn().mockReturnValue({ sys: { settings: { key: 'MainMenu' } } }),
   createGameScene: jest.fn().mockReturnValue({ sys: { settings: { key: 'Game' } } }),

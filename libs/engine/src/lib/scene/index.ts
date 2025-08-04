@@ -1,2 +1,2 @@
-export * from './lib/register-scenes';
-export * from './lib/create-scene';
+export * from './lib/scenes';
+export * from './lib/utils';

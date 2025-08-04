@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { eventBus } from '../../events';
+import { eventBus } from '../../../../events';
 
 interface CustomScene extends Phaser.Scene {
   create?: () => void;
