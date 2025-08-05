@@ -19,9 +19,7 @@ describe('AppLayout', () => {
 
     const container = document.getElementById('app-layout');
 
-    expect(container).toHaveClass('flex items-center justify-center min-h-screen w-screen');
-    expect(container?.querySelector('div')).toHaveClass(
-      'w-[800px] h-[800px] flex items-center justify-center relative',
-    );
+    expect(container).toHaveClass('min-h-screen w-screen pt-8');
+    expect(container?.querySelector('div')).toHaveClass('w-[900px] h-[700px] relative mx-auto');
   });
 });

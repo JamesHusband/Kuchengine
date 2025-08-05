@@ -1,6 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import { AppShell } from './AppShell';
 
+jest.mock('@kuchen/engine', () => ({
+  useGameInit: jest.fn(),
+}));
+
 jest.mock('@kuchen/gui', () => ({
   GameCanvas: () => <div data-testid="game-canvas" />,
   AppLayout: ({ children }: { children: React.ReactNode }) => <div data-testid="app-layout">{children}</div>,

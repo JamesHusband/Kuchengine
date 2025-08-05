@@ -3,6 +3,10 @@ import '@testing-library/jest-dom';
 import { GameCanvas } from './';
 import React from 'react';
 
+jest.mock('@kuchen/engine', () => ({
+  useGameInit: jest.fn(),
+}));
+
 describe('GameCanvas', () => {
   const gameRef = React.createRef<HTMLDivElement>();
 
