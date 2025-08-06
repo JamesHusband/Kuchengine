@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useSceneKey } from '@kuchen/engine';
+import { useSceneKey, pauseGame, resumeGame } from '@kuchen/engine';
 import { MainMenu, PauseMenu } from '../menus';
 import { Hud } from '../hud';
 
@@ -14,7 +14,14 @@ export const GuiProvider = () => {
     }
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        setShowPauseMenu((prev) => !prev);
+        setShowPauseMenu((isPaused) => {
+          if (!isPaused) {
+            pauseGame();
+          } else {
+            resumeGame();
+          }
+          return !isPaused;
+        });
       }
     };
     window.addEventListener('keydown', handleKeyDown);
@@ -23,12 +30,25 @@ export const GuiProvider = () => {
     };
   }, [sceneKey]);
 
-  let content = null;
   if (sceneKey === 'MainMenu') {
-    content = <MainMenu />;
-  } else if (sceneKey === 'Game') {
-    content = showPauseMenu ? <PauseMenu /> : <Hud />;
+    return <MainMenu />;
   }
 
-  return content;
+  if (sceneKey === 'Game') {
+    return (
+      <>
+        <Hud />
+        {showPauseMenu && (
+          <PauseMenu
+            onResume={() => {
+              setShowPauseMenu(false);
+              resumeGame();
+            }}
+          />
+        )}
+      </>
+    );
+  }
+
+  return null;
 };
