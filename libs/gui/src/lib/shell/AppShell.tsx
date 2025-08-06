@@ -1,5 +1,7 @@
 import { useRef } from 'react';
-import { GameCanvas, AppLayout, GuiProvider } from '@kuchen/gui';
+import { AppLayout } from '../layouts';
+import { GuiProvider } from '../providers';
+import { GameCanvas } from '../components';
 
 export const AppShell = () => {
   const gameRef = useRef<HTMLDivElement>(null);
