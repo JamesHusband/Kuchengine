@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
-import { registerSceneChangeHandler, registerScenes } from '@kuchen/engine';
+import { registerScenes } from '../../scene';
+import { registerSceneChangeHandler } from '../../events';
+
 import { getGame } from './game-instance';
 import { destroyGame, initializeGame } from './game-lifecycle';
 
@@ -9,9 +11,10 @@ export const useGameInit = (containerRef: React.RefObject<HTMLDivElement | null>
     if (getGame()) return;
 
     initializeGame(containerRef.current, {
+      width: containerRef.current.clientWidth,
+      height: containerRef.current.clientHeight,
       scenes: registerScenes(),
-      onReady: (instance) => {
-        console.info('Game Ready');
+      onReady: (instance: Phaser.Game) => {
         registerSceneChangeHandler(instance);
       },
     });
