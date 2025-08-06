@@ -14,7 +14,7 @@ export const useGameInit = (containerRef: React.RefObject<HTMLDivElement | null>
       width: containerRef.current.clientWidth,
       height: containerRef.current.clientHeight,
       scenes: registerScenes(),
-      onReady: (instance) => {
+      onReady: (instance: Phaser.Game) => {
         registerSceneChangeHandler(instance);
       },
     });
